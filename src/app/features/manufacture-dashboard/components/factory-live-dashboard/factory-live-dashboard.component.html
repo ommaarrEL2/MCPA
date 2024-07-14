@@ -1,0 +1,201 @@
+<div class="row my-4 gap-2 ">
+  <div class="col-md-3 cardd ">
+    <div class="card-overview p-3 ">
+      <h4>Total Production</h4>
+
+      <div class="parts my-5 w-100 row justify-content-between" (click)="getTotalParts()">
+        <div class="total-parts">
+          <label>Total Parts</label>
+        </div>
+        <div class="text-center part-count ">
+          <h6>1,048,634</h6>
+        </div>
+        <div class="text-end bg-arrow h-100 ">
+          <i class="pi pi-angle-right p-1"></i>
+        </div>
+      </div>
+
+      <div class="parts my-5 w-100 row justify-content-between" (click)="getTotalPackets()">
+        <div class="total-parts">
+          <label>Total Packets</label>
+        </div>
+        <div class="text-center part-count ">
+          <h6>1,048,634</h6>
+        </div>
+        <div class="text-end bg-arrow h-100 ">
+          <i class="pi pi-angle-right p-1"></i>
+        </div>
+      </div>
+
+      <div class="parts my-5 w-100 row justify-content-between" (click)="getTotalPallets()">
+        <div class="total-parts">
+          <label>Total Pallets</label>
+        </div>
+        <div class="text-center part-count ">
+          <h6>1,048,634</h6>
+        </div>
+        <div class="text-end bg-arrow h-100 ">
+          <i class="pi pi-angle-right p-1"></i>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-md-3 cardd ">
+    <app-sle></app-sle>
+  </div>
+
+  <div class="col-md-3 ">
+    <app-total-consumtion></app-total-consumtion>
+  </div>
+
+  <div class="col-md-3 cardd p-3" style="width: 22%;">
+    <h4>YIELD</h4>
+    <div class="row justify-content-between ">
+      <div class="col-8">
+        <p>Benzalkonium Chloride</p>
+      </div>
+      <div class="col-3">
+        <p>92.90%</p>
+      </div>
+    </div>
+    <div class="row justify-content-between ">
+      <div class="col-8">
+        <p>Polyquad</p>
+      </div>
+      <div class="col-3">
+        <p>92.90%</p>
+      </div>
+    </div>
+    <div class="row justify-content-between ">
+      <div class="col-8">
+        <p>Sodium Borate</p>
+      </div>
+      <div class="col-3">
+        <p>92.90%</p>
+      </div>
+    </div>
+    <div class="row justify-content-center ">
+      <div class="col-5">
+        <button pButton pRipple type="button" label="More Details" (click)="getYieldDetails()"
+          class="p-button-secondary"></button>
+      </div>
+    </div>
+    <div class="row justify-content-between ">
+      <div class="col-8">
+        <p>Perform Yield</p>
+      </div>
+      <div class="col-3">
+        <p>80.90%</p>
+      </div>
+    </div>
+    <div class="row justify-content-between ">
+      <div class="col-8">
+        <p>Bottle Yield</p>
+      </div>
+      <div class="col-3">
+        <p>80.90%</p>
+      </div>
+    </div>
+    <div class="row justify-content-between ">
+      <div class="col-8">
+        <p>NRB Yield</p>
+      </div>
+      <div class="col-3">
+        <p>75.90%</p>
+      </div>
+    </div>
+    <div class="row justify-content-center ">
+      <div class="col-5">
+        <button pButton pRipple type="button" label="More Details" (click)="getYieldDetails()"
+          class="p-button-secondary"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row my-2 gap-2">
+  <div class="col-md-4 cardd p-2">
+    <h4>Machines Status</h4>
+    <div class="row">
+      <div class="col-md-8">
+        <p-calendar [(ngModel)]="rangeDates" styleClass="w-100" placeholder="Select Range" selectionMode="range"
+          [readonlyInput]="true" inputId="range"></p-calendar>
+      </div>
+      <div class="col-md-4">
+        <button pButton pRipple type="button" label="Search" class="p-button-secondary w-100"></button>
+      </div>
+    </div>
+
+    <div class="row mt-2">
+      <p-table [value]="machineStatus">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Machine ID</th>
+            <th>Machine Status</th>
+            <th>Active Beacons</th>
+            <th>Inactive Beacons</th>
+            <th>Availability</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+          <tr>
+            <td>{{ product.machineID }}</td>
+            <td>{{ product.machineStatus }}</td>
+            <td>{{ product.activeBeacons }}</td>
+            <td>{{ product.inactiveBeacons }}</td>
+            <td>{{ product.availability }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+
+  <div class="col-md-5 cardd p-2" style="width: 40%;">
+    <nav>
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button"
+          role="tab" aria-controls="nav-home" aria-selected="true">SLE per Line</button>
+        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button"
+          role="tab" aria-controls="nav-profile" aria-selected="false">Production per Line</button>
+      </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab" tabindex="0">
+        <div id="sleDrilDownChart"></div>
+      </div>
+      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+        <div id="productionDrilDownChart"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 cardd p-2">
+    <app-factories-tree></app-factories-tree>
+  </div>
+</div>
+
+
+<p-dialog header="YIELD" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}" [draggable]="false"
+  [resizable]="false">
+  <p-table [columns]="cols" [value]="tableValues" [tableStyle]="{'min-width': '50rem'}">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{col.header}}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr>
+        <td *ngFor="let col of columns">
+          {{rowData[col.field]}}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-check" (click)="displayModal=false" label="Ok" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>

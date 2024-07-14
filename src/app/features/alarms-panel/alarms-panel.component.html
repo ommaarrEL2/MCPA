@@ -1,0 +1,118 @@
+<section class="alarms-panel">
+  <app-navbar></app-navbar>
+  <app-shared-header [headertext]="'Alarms'"></app-shared-header>
+  <div class="container-fluid">
+    <div class="row g-2">
+      <div class="col-md-4">
+        <div class="config-form px-4 py-5">
+          <form action="">
+            <div
+              class="form-group mb-4 d-flex justify-content-between align-items-center"
+            >
+              <label for="alarmName">Alarm Name</label>
+              <input
+                type="text"
+                class="form-control w-50"
+                id="alarmName"
+                formControlName="alarmName"
+              />
+            </div>
+            <div
+              class="form-group mb-4 d-flex justify-content-between align-items-center"
+            >
+              <label for="condition">Condition</label>
+              <input
+                type="text"
+                class="form-control w-50"
+                id="condition"
+                formControlName="condition"
+              />
+            </div>
+            <div
+              class="form-group mb-4 d-flex justify-content-between align-items-center"
+            >
+              <label for="forwardTo">Forward To</label>
+              <input
+                type="text"
+                class="form-control w-50"
+                id="forwardTo"
+                formControlName="forwardTo"
+              />
+            </div>
+            <div
+              class="form-group mb-4 d-flex justify-content-between align-items-center"
+            >
+              <label for="text">Text</label>
+              <textarea
+                class="form-control w-50 py-3"
+                id="text"
+                formControlName="text"
+              ></textarea>
+            </div>
+
+            <div class="group-btn d-flex justify-content-center pt-5">
+              <button class="main-btn">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="form-table py-4">
+          <table class="table">
+            <thead class="">
+              <tr>
+                <th>Date</th>
+                <th>To Whom</th>
+                <th>Alarm Name</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>25/5/2024</td>
+                <td>User Name</td>
+                <td>High Temperature</td>
+                <td>
+                  <i class="pi pi-file-edit pe-2"></i>
+                  <i class="pi pi-trash" (click)="displayModal = true"></i>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="catalog py-3 light-gray">
+          <h4>Add Catalog</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Delete Dialog -->
+<p-dialog
+  header="Header"
+  [(visible)]="displayModal"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <p class="m-0">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+  <ng-template pTemplate="footer">
+    <p-button
+      icon="pi pi-check"
+      (click)="displayModal = false"
+      label="Ok"
+      styleClass="p-button-text"
+    ></p-button>
+  </ng-template>
+</p-dialog>

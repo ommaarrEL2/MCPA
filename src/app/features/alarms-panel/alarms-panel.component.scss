@@ -1,0 +1,14 @@
+@import "../../../assets/styles/layout.scss";
+.alarms-panel {
+  textarea {
+    resize: none;
+  }
+  .catalog {
+    background: #ffffff 0% 0% no-repeat padding-box;
+    h4 {
+      font: normal normal 600 18px/24px Segoe UI;
+      letter-spacing: 0px;
+      color: #707070;
+    }
+  }
+}

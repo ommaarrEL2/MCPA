@@ -1,0 +1,121 @@
+<section class="system-setting">
+  <app-navbar></app-navbar>
+  <app-shared-header [headertext]="'Configure System Settings'">
+  </app-shared-header>
+  <div class="container-fluid p-4">
+    <div class="row">
+      <div class="config-form system-form p-5">
+        <form action="">
+          <div class="row">
+            <div class="col-md-6">
+              <div
+                class="form-group mb-4 d-flex justify-content-between align-items-center"
+              >
+                <label for="serverIP">Server IP</label>
+                <input
+                  type="text"
+                  class="form-control w-50"
+                  id="serverIP"
+                  formControlName="serverIP"
+                />
+              </div>
+              <div
+                class="form-group mb-4 d-flex justify-content-between align-items-center"
+              >
+                <label for="serverUrl">Server URL</label>
+                <input
+                  type="text"
+                  class="form-control w-50"
+                  id="serverUrl"
+                  formControlName="serverUrl"
+                />
+              </div>
+              <div class="config-customer-calendar my-3">
+                <a routerLink="/setting/customerCalendar"
+                  >Configure Customer calendar</a
+                >
+              </div>
+              <div
+                class="form-group mb-4 d-flex justify-content-between align-items-center"
+              >
+                <label for="customerName">Customer Name</label>
+                <input
+                  type="text"
+                  class="form-control w-50"
+                  id="customerName"
+                  formControlName="customerName"
+                />
+              </div>
+              <div
+                class="form-group mb-4 d-flex justify-content-between align-items-center"
+              >
+                <label
+                  for="
+              customerLogo"
+                  >Customer Logo</label
+                >
+                <input
+                  type="text"
+                  class="form-control w-50"
+                  id="customerLogo"
+                  formControlName="customerLogo"
+                />
+              </div>
+            </div>
+            <div class="col-md-6 ps-5">
+              <div
+                class="form-group mb-4 d-flex justify-content-between align-items-center"
+              >
+                <label for="licenseManager">License Manager</label>
+                <input
+                  type="text"
+                  class="form-control w-50"
+                  id="licenseManager"
+                  formControlName="licenseManager"
+                />
+              </div>
+              <div
+                class="form-group mb-4 d-flex justify-content-between align-items-center"
+              >
+                <label for="softwareVersion">Software Version</label>
+                <input
+                  type="text"
+                  class="form-control w-50"
+                  id="softwareVersion"
+                  formControlName="softwareVersion"
+                />
+              </div>
+              <div
+                class="form-group mb-4 d-flex justify-content-between align-items-center"
+              >
+                <label for="databaseServerIp">Database Server IP</label>
+                <input
+                  type="text"
+                  class="form-control w-50"
+                  id="databaseServerIp"
+                  formControlName="databaseServerIp"
+                />
+              </div>
+              <div
+                class="form-group mb-4 d-flex justify-content-between align-items-center"
+              >
+                <label for="databaseCredentials">Database Credentials</label>
+                <input
+                  type="text"
+                  class="form-control w-50"
+                  id="databaseCredentials"
+                  formControlName="databaseCredentials"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="group-btn d-flex justify-content-center pt-5">
+            <button class="main-btn me-5">Save</button>
+            <button class="close-btn">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- <app-footer></app-footer> -->
+</section>

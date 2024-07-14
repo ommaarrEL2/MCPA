@@ -1,0 +1,132 @@
+<section class="config customer-calndar vh-100 config-form overflow-x-hidden">
+  <app-navbar></app-navbar>
+  <app-shared-header [headertext]="'Configure Customer Calendar'">
+  </app-shared-header>
+  <div class="container-fluid mt-3">
+    <div class="row pb-2">
+      <div class="col-md-4">
+        <div class="shift-count pt-4 pb-5 shared-card config-form">
+          <span class="px-4">Shift 1 -<span> 28th May 2024</span></span>
+          <div
+            class="d-flex justify-content-between align-items-center mt-5 py-2 light-gray"
+          >
+            <span class="ps-4">Number of Shifts</span>
+            <span class="pe-4">4</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="shift-form p-3 config-form">
+          <h3 class="mb-4">Add New Shift</h3>
+          <div class="row">
+            <form action="">
+              <div
+                class="form-group mb-3 d-flex justify-content-between align-items-center"
+              >
+                <label for="order">Order</label>
+                <input
+                  type="text"
+                  class="form-control w-50"
+                  id="order"
+                  formControlName="sku-order"
+                />
+              </div>
+              <div
+                class="form-group mb-3 d-flex justify-content-between align-items-center"
+              >
+                <label for="start">Start</label>
+                <input
+                  type="text"
+                  class="form-control w-50"
+                  id="start"
+                  formControlName="sku-start"
+                />
+              </div>
+              <div
+                class="form-group mb-3 d-flex justify-content-between align-items-center"
+              >
+                <label for="end">End</label>
+                <input
+                  type="text"
+                  class="form-control w-50"
+                  id="end"
+                  formControlName="sku-end"
+                />
+              </div>
+              <div class="group-btn d-flex justify-content-center pt-2">
+                <button class="main-btn px-4 py-1">Add</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="calendar shadow">
+          <form action="">
+            <p-calendar [inline]="true" [showWeek]="true"></p-calendar>
+            <div class="group-btn d-flex justify-content-center pt-2">
+              <button class="main-btn px-4 py-1">Apply</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-5">
+      <div class="col-md-12">
+        <div class="form-table p-3">
+          <div class="">
+            <table class="table">
+              <thead class="">
+                <tr>
+                  <th></th>
+                  <th>Shift Start Time</th>
+                  <th>Shift End Time</th>
+                  <th>Shift Duration</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Shift 1</td>
+                  <td>08:00 AM</td>
+                  <td>04:00 PM</td>
+                  <td>8 H</td>
+                  <td>
+                    <i class="pi pi-file-edit pe-2"></i>
+                    <i class="pi pi-trash" (click)="displayModal = true"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Delete Dialog -->
+<p-dialog
+  header="Header"
+  [(visible)]="displayModal"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <p class="m-0">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+  <ng-template pTemplate="footer">
+    <p-button
+      icon="pi pi-check"
+      (click)="displayModal = false"
+      label="Ok"
+      styleClass="p-button-text"
+    ></p-button>
+  </ng-template>
+</p-dialog>

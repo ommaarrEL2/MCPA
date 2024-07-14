@@ -1,0 +1,186 @@
+<div class="container-fluid p-3 ">
+  <div class="row justify-content-between">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-6 ">
+      <div class="row d-flex justify-content-end ">
+        <!-- <div class="col-md-2">
+          <p-dropdown [options]="factoryList" styleClass="w-100 mt-1 " [(ngModel)]="selectedFactory"
+            placeholder="Factory" optionLabel="name" optionValue="id" [showClear]="true"></p-dropdown>
+        </div> -->
+        <div class="col-md-9">
+          <div class="d-grid gap-2 d-md-block">
+            <input type="radio" class="btn-check " (click)="onCustumDate()" [value]="0" name="options-outlined" checked
+              id="danger-outlined" [(ngModel)]="selectedTime" autocomplete="off">
+            <label class="btn btn-outline-danger ms-3 mb-1 " for="danger-outlined">Live</label>
+            <input type="radio" (click)="onCustumDate()" [value]="1" class="btn-check " name="options-outlined"
+              id="LastDay" [(ngModel)]="selectedTime" autocomplete="off">
+            <label class="btn btn-outline-success ms-3 mb-1 " for="LastDay">Last Day</label>
+            <input type="radio" (click)="onCustumDate()" [value]="2" class="btn-check " name="options-outlined"
+              id="Last7Days" [(ngModel)]="selectedTime" autocomplete="off">
+            <label class="btn btn-outline-success ms-3 mb-1 " for="Last7Days">Last 7 Days</label>
+            <input type="radio" (click)="onCustumDate()" [value]="3" class="btn-check " name="options-outlined"
+              id="LastMonth" [(ngModel)]="selectedTime" autocomplete="off">
+            <label class="btn btn-outline-success ms-3 mb-1 " for="LastMonth">Last Month</label>
+            <p-calendar #calendar [(ngModel)]="selectedRangeDate" styleClass="ms-2 mt-1 " placeholder="Custom"
+              selectionMode="range" [readonlyInput]="true" inputId="range">
+              <!-- <input type="radio" (click)="onCustumDate()" [value]="4" class="btn-check" name="options-outlined" id="custom"
+                [(ngModel)]="selectedTime" autocomplete="off"> -->
+            </p-calendar>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-2 ">
+    <div class="col-md-3 cardd ">
+      <h4>Material</h4>
+      <p-table [value]="materialList">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Warehouse ID</th>
+            <th>Date</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+          <tr>
+            <td>{{ product.code }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.quantity }}</td>
+            <td>{{ product.warehouseID }}</td>
+            <td>{{ product.date }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    <div class="col-md-3">
+      <div class="energy p-3 ">
+        <h3>Energy Consumption Ratio <span>95%</span> </h3>
+      </div>
+      <div class="energy p-3 my-5 ">
+        <h3>Water Consumption Ratio <span>80%</span> </h3>
+      </div>
+      <div class="energy p-3 ">
+        <h3>Machine Speed Ratio <span>70%</span> </h3>
+      </div>
+    </div>
+    <div class="col-md-1">
+      <div class="availableCard p-2 ">
+        <h4>Availability</h4>
+        <h3 class="text-bolder">98%</h3>
+      </div>
+      <div class="availableCard p-2 my-3 ">
+        <h4 style="font-size: 1.3rem;">Performance</h4>
+        <h3 class="text-bolder">80%</h3>
+      </div>
+      <div class="availableCard p-2 my-3">
+        <h4>Quality</h4>
+        <h3 class="text-bolder">72%</h3>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="energy p-3 ">
+        <h4>Total Energy Consumption <span style="color: #6E6E6E;" class="ms-2 text-bolder "> 119 (KWH)</span> </h4>
+        <h5>Line Consumption <span style="color: #6E6E6E" class=" ms-5 text-bolder ">
+            70%</span></h5>
+      </div>
+      <div class="row ms-2 gap-2 mt-3">
+        <div class="col-md-4 availableCard p-2 ">
+          <h5>Average Cycle Time</h5>
+          <h3 class="text-bolder">14000</h3>
+          <p>BPH</p>
+        </div>
+        <div class="col-md-7 availableCard p-2 ">
+          <h5>Top Material consumed</h5>
+          <p class="text-bolder">Benzalkonium Chloride</p>
+          <button pButton pRipple type="button" label="More Details" class="p-button-secondary"></button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 cardd ">
+      <h4>Manpower</h4>
+      <p-table [value]="manpowerList">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Department</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+          <tr>
+            <td>{{ product.code }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.department }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+
+  <div class="row mt-3 gap-2">
+    <div class="col-md-4 cardd p-2 machineStatus ">
+      <h4>Machine Status</h4>
+      <div class="row">
+        <div class="col-md-8">
+          <p-calendar [(ngModel)]="rangeDates" styleClass="w-100" placeholder="Select Range" selectionMode="range"
+            [readonlyInput]="true" inputId="range"></p-calendar>
+        </div>
+        <div class="col-md-4">
+          <button pButton pRipple type="button" label="Search" class="p-button-secondary w-100"></button>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <p-table [value]="machineStatus">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Machine ID</th>
+              <th>Machine Status</th>
+              <th>Active Beacons</th>
+              <th>Inactive Beacons</th>
+              <th>Availability</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-product>
+            <tr>
+              <td>{{product.machineID}}</td>
+              <td>{{product.machineStatus}}</td>
+              <td>{{product.activeBeacons}}</td>
+              <td>{{product.inactiveBeacons}}</td>
+              <td>{{product.availability}}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+
+    <div class="col-md-6 ">
+      <div class="row cardd p-2 ">
+        <h4>Machine Time Diagram</h4>
+        <apx-chart [series]="TimeLineChartOptionsL.series" [chart]="TimeLineChartOptionsL.chart"
+          [dataLabels]="TimeLineChartOptionsL.dataLabels" [plotOptions]="TimeLineChartOptionsL.plotOptions"
+          [xaxis]="TimeLineChartOptionsL.xaxis" [legend]="TimeLineChartOptionsL.legend"
+          [tooltip]="TimeLineChartOptionsL.tooltip" [colors]="TimeLineChartOptionsL.colors"
+          [fill]="TimeLineChartOptionsL.fill"></apx-chart>
+      </div>
+      <div class="row mt-3 p-2 cardd">
+        <h4>Machine Speed</h4>
+        <div id="chart">
+          <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+            [stroke]="chartOptions.stroke" [dataLabels]="chartOptions.dataLabels" [yaxis]="chartOptions.yaxis"
+            [labels]="chartOptions.labels" [legend]="chartOptions.legend" [title]="chartOptions.title"
+            [subtitle]="chartOptions.subtitle"></apx-chart>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 cardd">
+      <app-factories-tree></app-factories-tree>
+    </div>
+
+  </div>
+</div>

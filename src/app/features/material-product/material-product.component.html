@@ -1,0 +1,250 @@
+<section class="material-product vh-100">
+  <app-navbar></app-navbar>
+  <app-shared-header [headertext]="'Batches Details'"></app-shared-header>
+  <div class="container-fluid mt-3">
+    <div class="row g-2">
+      <div class="col-md-3">
+        <div class="row gy-3">
+          <div class="col-md-12">
+            <div class="batch-table">
+              <div class="form-table">
+                <h3 class="p-2">Active Batches</h3>
+
+                <table class="table">
+                  <thead class="">
+                    <tr>
+                      <th>Batch ID</th>
+                      <th>SKU</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td routerLink="/material/rdi">120321-1</td>
+                      <td>LM41691000</td>
+                    </tr>
+                    <tr>
+                      <td routerLink="/material/rdi">157321-1</td>
+                      <td>LM41691000</td>
+                    </tr>
+                    <tr>
+                      <td>122655-2</td>
+                      <td>LM41691000</td>
+                    </tr>
+                    <tr>
+                      <td routerLink="/material/rdi">120321-1</td>
+                      <td>LM41691000</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="light-gray">
+                  <span class="p-1">Click on The Batch ID to View Details</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="status-table">
+              <div class="form-table">
+                <h3 class="p-2">Scales Status</h3>
+                <div class="row px-2 pb-3 justify-content-center g-2">
+                  <div class="col-md-4">
+                    <p-calendar
+                      inputId="basic"
+                      placeholder="MM/DD/YY"
+                    ></p-calendar>
+                  </div>
+                  <div class="col-md-4">
+                    <p-calendar
+                      inputId="basic"
+                      placeholder="MM/DD/YY"
+                    ></p-calendar>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="group-btn">
+                      <button class="close-btn">Search</button>
+                    </div>
+                  </div>
+                </div>
+                <table class="table">
+                  <thead class="">
+                    <tr>
+                      <th>Scale ID</th>
+                      <th>Scale Status</th>
+                      <th>Scale Capacity KG</th>
+                      <th>Availability</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>12084678</td>
+                      <td>
+                        <div class="status-btn">
+                          <button class="on">ON</button>
+                        </div>
+                      </td>
+                      <td>3000</td>
+                      <td>70%</td>
+                    </tr>
+                    <tr>
+                      <td>12084678</td>
+                      <td>
+                        <div class="status-btn">
+                          <button class="N-A">N/A</button>
+                        </div>
+                      </td>
+                      <td>1500</td>
+                      <td>0%</td>
+                    </tr>
+                    <tr>
+                      <td>12084678</td>
+                      <td>
+                        <div class="status-btn">
+                          <button class="off">OFF</button>
+                        </div>
+                      </td>
+                      <td>3000</td>
+                      <td>70%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="row g-2">
+          <div class="col-md-6">
+            <div class="row gy-3">
+              <div class="col-md-12">
+                <div class="average py-4">
+                  <div
+                    class="holding-time bg-gray d-flex justify-content-around align-items-center py-1 mb-3"
+                  >
+                    <h4>Average Holding Time</h4>
+                    <span>2 H</span>
+                  </div>
+                  <div
+                    class="process bg-gray d-flex justify-content-around align-items-center py-1"
+                  >
+                    <h4>Average Process Time</h4>
+                    <span>2 H</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="average py-4">
+                  <div
+                    class="holding-time bg-gray d-flex justify-content-around align-items-center py-1 mb-3"
+                  >
+                    <h4>Total Energy Consumed</h4>
+                    <span>119 (KWH)</span>
+                  </div>
+                  <div
+                    class="process bg-gray d-flex justify-content-around align-items-center py-1 mb-3"
+                  >
+                    <h4>Total Water Consumed</h4>
+                    <span>13.195 (m3)</span>
+                  </div>
+                  <div
+                    class="process bg-gray d-flex justify-content-around align-items-center py-1 mb-3"
+                  >
+                    <h4>Total Manpower Consumed</h4>
+                    <span>50</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12"></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="timing py-4">
+              <div
+                class="holding-time bg-gray d-flex justify-content-around align-items-center py-1 mb-3"
+              >
+                <h4>Process Time</h4>
+                <span>08:00 AM</span>
+              </div>
+              <div
+                class="holding-time bg-gray d-flex justify-content-around align-items-center py-1 mb-3"
+              >
+                <h4>Dispatched Time</h4>
+                <span>10:00 AM</span>
+              </div>
+              <div
+                class="holding-time bg-gray d-flex justify-content-around align-items-center py-1 mb-3"
+              >
+                <h4>Delivery Time</h4>
+                <span>01:30 PM</span>
+              </div>
+              <div
+                class="holding-time bg-gray d-flex justify-content-around align-items-center py-1 mb-3"
+              >
+                <h4>Quarantine Time</h4>
+                <span>03:30 PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="row gy-3">
+          <div class="col-md-12">
+            <div class="batch-search">
+              <h6 class="p-2">Search for Batches</h6>
+              <div class="px-2 pb-3">
+                <label class="mb-2" for="batchId">Batch ID</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Type Batch ID"
+                  id="batchId"
+                />
+              </div>
+              <div class="total-batches light-gray py-1 px-2">
+                <span>Batches</span>
+              </div>
+              <div class="group-btn d-flex justify-content-center pt-5 pb-4">
+                <button class="close-btn">Apply</button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="batch-table">
+              <div class="form-table">
+                <h3 class="p-2">Closed Batches</h3>
+
+                <table class="table">
+                  <thead class="">
+                    <tr>
+                      <th>Batch ID</th>
+                      <th>SKU</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>120321-1</td>
+                      <td>LM41691000</td>
+                    </tr>
+                    <tr>
+                      <td>157321-1</td>
+                      <td>LM41691000</td>
+                    </tr>
+                    <tr>
+                      <td>122655-2</td>
+                      <td>LM41691000</td>
+                    </tr>
+                    <tr>
+                      <td>120321-1</td>
+                      <td>LM41691000</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

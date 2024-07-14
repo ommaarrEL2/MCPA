@@ -1,0 +1,199 @@
+<div class="container-fluid p-3">
+  <div class="row justify-content-between">
+    <div class="col-md-4">
+      <div class="back text-center d-inline-block">
+        <div class="card-arrow rounded-pill shadow p-1">
+          <i class="pi pi-arrow-left"></i>
+        </div>
+      </div>
+
+      <div class="header ms-3 d-inline-block">
+        <h3>Factories Overview</h3>
+      </div>
+    </div>
+
+    <!-- <div class="col-md-2">
+      <p-dropdown [options]="factories" placeholder="Select a Factory" optionLabel="name" optionValue="id"
+        [showClear]="true"></p-dropdown>
+    </div> -->
+  </div>
+  <div class="row my-4 gap-1">
+    <div class="col-md-3 cardd">
+      <div class="card-overview p-1">
+        <h4>Total Production</h4>
+        <div class="parts my-3 w-100 row justify-content-between" (click)="getTotalParts()">
+          <div class="total-parts">
+            <label>Total Parts</label>
+          </div>
+          <div class="text-center part-count">
+            <h6>1,048,634</h6>
+          </div>
+          <div class="text-end bg-arrow h-100">
+            <i class="pi pi-angle-right p-1"></i>
+          </div>
+        </div>
+
+        <div class="parts my-3 w-100 row justify-content-between" (click)="getTotalPackets()">
+          <div class="total-parts">
+            <label>Total Packets</label>
+          </div>
+          <div class="text-center part-count">
+            <h6>1,048,634</h6>
+          </div>
+          <div class="text-end bg-arrow h-100">
+            <i class="pi pi-angle-right p-1"></i>
+          </div>
+        </div>
+
+        <div class="parts my-3 w-100 row justify-content-between" (click)="getTotalPallets()">
+          <div class="total-parts">
+            <label>Total Pallets</label>
+          </div>
+          <div class="text-center part-count">
+            <h6>1,048,634</h6>
+          </div>
+          <div class="text-end bg-arrow h-100">
+            <i class="pi pi-angle-right p-1"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 cardd" style="width: 18%;">
+      <div class="p-1">
+        <div class="text-center">
+          <h5>Total Energy Consumption</h5>
+          <h4>119 (KWH)</h4>
+        </div>
+        <p-table [value]="energyConsumption">
+          <ng-template pTemplate="header">
+            <tr>
+              <th class="w-50">Day</th>
+              <th class="w-50">Consumption</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-product>
+            <tr>
+              <td>{{ product.day }}</td>
+              <td>{{ product.consumption }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+
+    <div class="col-md-3 cardd">
+      <div class="card-overview p-1">
+        <div class="card-header text-center">
+          <h4>Total Water Consumption</h4>
+          <h4>13.195 (m3)</h4>
+        </div>
+        <p-table [value]="waterConsumption">
+          <ng-template pTemplate="header">
+            <tr>
+              <th class="w-50">Day</th>
+              <th class="w-50">Consumption</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-product>
+            <tr>
+              <td>{{ product.day }}</td>
+              <td>{{ product.consumption }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+
+    <div class="col-md-2 cardd">
+      <div class="text-center">
+        <div class="">
+          <h4>Top SKU produced</h4>
+        </div>
+        <div class="top-SKU-produced p-3">
+          <h5>LM41691000</h5>
+        </div>
+        <h5>1500 KG</h5>
+      </div>
+    </div>
+
+    <div class="col-md-2 cardd">
+      <div id="chart">
+        <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+          [stroke]="chartOptions.stroke" [markers]="chartOptions.markers" [fill]="chartOptions.fill"
+          [title]="chartOptions.title">
+        </apx-chart>
+      </div>
+    </div>
+  </div>
+
+  <div class="row gap-2">
+    <div class="col-md-4 cardd p-2">
+      <h4>Machines Status</h4>
+      <div class="row">
+        <div class="col-md-8">
+          <p-calendar [(ngModel)]="rangeDates" styleClass="w-100" placeholder="Select Range" selectionMode="range"
+            [readonlyInput]="true" inputId="range"></p-calendar>
+        </div>
+        <div class="col-md-2">
+          <button pButton pRipple type="button" label="Search" class="p-button-secondary"></button>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <p-table [value]="machineStatus">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Machine ID</th>
+              <th>Machine Status</th>
+              <th>Active Beacons</th>
+              <th>Inactive Beacons</th>
+              <th>Availability</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-product>
+            <tr>
+              <td>{{ product.machineID }}</td>
+              <td>{{ product.machineStatus }}</td>
+              <td>{{ product.activeBeacons }}</td>
+              <td>{{ product.inactiveBeacons }}</td>
+              <td>{{ product.availability }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+
+    <div class="col-md-6 p-2 cardd" style="width: 40%">
+      <h4>Total Production per Factory</h4>
+      <div id="DrilDownChart"></div>
+    </div>
+
+    <div class="col-md-3 p-3 cardd">
+      <app-factories-tree></app-factories-tree>
+    </div>
+  </div>
+</div>
+
+<p-dialog header="Total Parts" [(visible)]="displayModal" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false"
+  [resizable]="false">
+  <p-table [columns]="cols" [value]="parts" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header" let-columns>
+      <tr>
+        <th *ngFor="let col of columns">
+          {{ col.header }}
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+      <tr>
+        <td *ngFor="let col of columns">
+          {{ rowData[col.field] }}
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <ng-template pTemplate="footer">
+    <p-button icon="pi pi-check" (click)="displayModal = false" label="Ok" styleClass="p-button-text"></p-button>
+  </ng-template>
+</p-dialog>

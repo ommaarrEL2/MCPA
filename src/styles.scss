@@ -1,1 +1,96 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "../node_modules/primeng/resources/primeng.min.css";
+@import "../node_modules/primeicons/primeicons.css";
+@import "../node_modules/primeng/resources/themes/saga-blue/theme.css";
+
+body {
+  background: #f6f6f6 0% 0% no-repeat padding-box;
+}
+
+.light-gray {
+  background-color: #f3f3f3;
+}
+.bg-gray {
+  background-color: #fafafa;
+}
+a {
+  text-decoration: none;
+}
+.shared-card {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 6px #00000052;
+}
+.config-form {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 6px #00000052;
+  form {
+    .form-group {
+      label {
+        font-size: 1.2rem;
+        font-weight: 600;
+        font-family: Segoe UI;
+        color: #707070;
+      }
+    }
+  }
+}
+
+.form-table {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 6px #00000052;
+  h3 {
+    font-weight: 600;
+    font-family: Segoe UI;
+    color: #707070;
+    text-shadow: 0px 0px 6px #00000033;
+  }
+}
+table {
+  td,
+  th {
+    font-family: Segoe UI;
+    color: #707070 !important;
+    text-align: center;
+  }
+  thead {
+    background-color: #f3f3f3 !important;
+    th {
+      font-weight: 600;
+    }
+  }
+  i {
+    cursor: pointer;
+  }
+}
+.table > :not(caption) > * > * {
+  background-color: transparent;
+  border-bottom-width: 0px;
+}
+.config {
+  background-color: #f6f6f6;
+  .form-control:focus,
+  .form-select {
+    border-color: transparent;
+    box-shadow: 0px 0px 6px #0000006b;
+  }
+}
+//  customization
+.customer-calndar {
+  .p-calendar {
+    height: 270px !important;
+  }
+}
+.material-product {
+  .p-inputtext {
+    padding: 0.1rem 0.5rem;
+    font-size: 0.9rem;
+  }
+}
+// .p-datepicker {
+//   background-color: transparent !important;
+// }
+.p-tree .p-tree-container .p-treenode .p-treenode-content {
+  background: #f2f2f2 0% 0% no-repeat padding-box;
+  color: #495057;
+}

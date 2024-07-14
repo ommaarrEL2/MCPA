@@ -1,0 +1,31 @@
+.view {
+  .view-arrow {
+    position: absolute;
+    top: 50%;
+    right: -47px;
+    transform: translateY(-50%);
+    background: #2680eb 0% 0% no-repeat padding-box;
+    width: 46px;
+    height: 46px;
+  }
+  .down-arrow {
+    position: absolute;
+    bottom: -33%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #2680eb 0% 0% no-repeat padding-box;
+    width: 47px;
+    height: 47px;
+  }
+  table thead th {
+    font-size: 0.8rem;
+  }
+  tbody,
+  td,
+  tfoot,
+  th,
+  thead,
+  tr {
+    font-size: 0.9rem;
+  }
+}

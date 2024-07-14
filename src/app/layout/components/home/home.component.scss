@@ -1,0 +1,19 @@
+.home {
+  background-image: url(../../../../assets/images/home-background.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100vh;
+  .home-card {
+    background-color: #fff;
+    cursor: pointer;
+    h2 {
+      // font: normal normal normal 40px/45px Segoe UI;
+      color: #5d5d5d;
+    }
+    p {
+      // font: normal normal normal 16px/20px Segoe UI;
+      color: #818181;
+    }
+  }
+}

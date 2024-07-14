@@ -1,0 +1,164 @@
+<section class="config-sku">
+  <app-navbar></app-navbar>
+  <app-shared-header [headertext]="'Configure SKU/Material Catalog'">
+  </app-shared-header>
+  <div class="container-fluid my-3">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="config-form px-4 py-5">
+          <form action="">
+            <div
+              class="form-group mb-4 d-flex justify-content-between align-items-center"
+            >
+              <label for="code">SKU Code</label>
+              <input
+                type="text"
+                class="form-control w-50"
+                id="code"
+                formControlName="sku-code"
+              />
+            </div>
+            <div
+              class="form-group mb-4 d-flex justify-content-between align-items-center"
+            >
+              <label for="code">SKU Name</label>
+              <input
+                type="text"
+                class="form-control w-50"
+                id="code"
+                formControlName="sku-name"
+              />
+            </div>
+            <div
+              class="form-group mb-4 d-flex justify-content-between align-items-center"
+            >
+              <label for="code">UoM</label>
+              <input
+                type="text"
+                class="form-control w-50"
+                id="code"
+                formControlName="uom"
+              />
+            </div>
+            <div
+              class="form-group mb-4 d-flex justify-content-between align-items-center"
+            >
+              <label for="code">Creation Date</label>
+              <input
+                type="text"
+                class="form-control w-50"
+                id="code"
+                formControlName="creation-date"
+              />
+            </div>
+            <div
+              class="form-group mb-4 d-flex justify-content-between align-items-center"
+            >
+              <label for="code">Created by</label>
+              <input
+                type="text"
+                class="form-control w-50"
+                id="code"
+                formControlName="created-by"
+              />
+            </div>
+            <div
+              class="form-group mb-4 d-flex justify-content-between align-items-center"
+            >
+              <label for="code">Status</label>
+              <select
+                class="form-select w-50"
+                aria-label="Default select example"
+                id="status"
+                formControlName="status"
+              >
+                <option value="1">Active</option>
+                <option value="2">Not active</option>
+              </select>
+            </div>
+            <div
+              class="form-group mb-4 d-flex justify-content-between align-items-center"
+            >
+              <label for="type">Type</label>
+              <select
+                class="form-select w-50"
+                aria-label="Default select example"
+                id="type"
+                formControlName="type"
+              >
+                <option value="1"></option>
+                <option value="2"></option>
+              </select>
+            </div>
+            <div class="group-btn d-flex justify-content-evenly pt-5">
+              <button class="main-btn">Save</button>
+              <button class="close-btn">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="form-table p-3">
+          <h3>SKU</h3>
+          <div class="sku-table">
+            <table class="table">
+              <thead class="">
+                <tr>
+                  <th>SKU code</th>
+                  <th>SKU name</th>
+                  <th>Created by</th>
+                  <th>Status</th>
+                  <th>Type</th>
+                  <th>Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>LM41691000</td>
+                  <td>sssssssssss</td>
+                  <td>User Name</td>
+                  <td>Active</td>
+                  <td>zzzzzzzzzzzzzzzzzz</td>
+                  <td>25/5/2024</td>
+                  <td>
+                    <i class="pi pi-file-edit pe-2"></i>
+                    <i class="pi pi-trash" (click)="displayModal = true"></i>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <app-footer></app-footer> -->
+</section>
+
+<!-- Delete Dialog -->
+<p-dialog
+  header="Header"
+  [(visible)]="displayModal"
+  [modal]="true"
+  [style]="{ width: '50vw' }"
+  [draggable]="false"
+  [resizable]="false"
+>
+  <p class="m-0">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
+    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  </p>
+  <ng-template pTemplate="footer">
+    <p-button
+      icon="pi pi-check"
+      (click)="displayModal = false"
+      label="Ok"
+      styleClass="p-button-text"
+    ></p-button>
+  </ng-template>
+</p-dialog>

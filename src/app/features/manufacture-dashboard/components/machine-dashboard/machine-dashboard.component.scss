@@ -1,0 +1,30 @@
+.energy {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 6px #0000001a;
+  span {
+    color: #488dca;
+  }
+}
+
+.cardd {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 6px #00000052;
+}
+
+.availableCard {
+  background: #ffffff 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 4px #0000001a;
+  text-align: center;
+  h4,
+  h5,
+  h6 {
+    color: #3481c5;
+  }
+  h3 {
+    color: #696969;
+  }
+}
+
+.machineStatus {
+  width: 32%;
+}

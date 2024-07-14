@@ -1,0 +1,19 @@
+@import "../../../../../assets/styles/layout.scss";
+
+.system-setting {
+  // background-color: #f6f6f6;
+  .system-form {
+    background: #ffffff 0% 0% no-repeat padding-box;
+    box-shadow: 0px 0px 6px #00000052;
+    .config-customer-calendar a {
+      font-size: 1.2rem;
+      font-weight: 600;
+      font-family: Segoe UI;
+      color: #707070;
+      transition: 0.4s ease;
+      &:hover {
+        color: rgb(69, 69, 241);
+      }
+    }
+  }
+}

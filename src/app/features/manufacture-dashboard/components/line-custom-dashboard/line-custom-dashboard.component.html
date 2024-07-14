@@ -1,0 +1,278 @@
+<div class="container-fluid p-3 ">
+  <div class="row gap-2 ">
+    <div class="col-md-3 cardd totalProduction">
+      <div class="card-overview p-3 ">
+        <h4>Total Production</h4>
+
+        <div class="parts my-5 w-100 row justify-content-between" (click)="getTotalParts()">
+          <div class="total-parts">
+            <label>Total Parts</label>
+          </div>
+          <div class="text-center part-count ">
+            <h6>1,048,634</h6>
+          </div>
+          <div class="text-end bg-arrow h-100 ">
+            <i class="pi pi-angle-right p-1"></i>
+          </div>
+        </div>
+
+        <div class="parts my-5 w-100 row justify-content-between" (click)="getTotalPackets()">
+          <div class="total-parts">
+            <label>Total Packets</label>
+          </div>
+          <div class="text-center part-count ">
+            <h6>1,048,634</h6>
+          </div>
+          <div class="text-end bg-arrow h-100 ">
+            <i class="pi pi-angle-right p-1"></i>
+          </div>
+        </div>
+
+        <div class="parts my-5 w-100 row justify-content-between" (click)="getTotalPallets()">
+          <div class="total-parts">
+            <label>Total Pallets</label>
+          </div>
+          <div class="text-center part-count ">
+            <h6>1,048,634</h6>
+          </div>
+          <div class="text-end bg-arrow h-100 ">
+            <i class="pi pi-angle-right p-1"></i>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-md-1 cardd" style="width: 10%;">
+      <h4>SLE</h4>
+      <div class="row justify-content-between ">
+        <div class="col-6">
+          <p>Target SLE</p>
+        </div>
+        <div class="col-3">
+          <p>80%</p>
+        </div>
+      </div>
+      <div class="d-flex flex-column align-items-center">
+        <apx-chart [series]="radialchartOptions1?.series" [chart]="radialchartOptions1?.chart"
+          [plotOptions]="radialchartOptions1?.plotOptions" [labels]="radialchartOptions1?.labels"></apx-chart>
+      </div>
+    </div>
+
+    <div class="col-md-1 cardd" style="width: 11%;">
+      <h4>PPTP</h4>
+      <div class="row justify-content-between ">
+        <div class="col-6">
+          <p>Target PPTP</p>
+        </div>
+        <div class="col-3">
+          <p>97%</p>
+        </div>
+      </div>
+      <div class="d-flex flex-column align-items-center">
+        <apx-chart [series]="pptpChart?.series" [chart]="pptpChart?.chart" [plotOptions]="pptpChart?.plotOptions"
+          [labels]="pptpChart?.labels"></apx-chart>
+      </div>
+    </div>
+
+    <div class="col-md-1">
+      <div class="row availableCard p-2 ">
+        <h4>Availability</h4>
+        <h3 class="text-bolder">98%</h3>
+      </div>
+      <div class="row availableCard p-2 my-5 ">
+        <h4 style="font-size: 1.4rem;">Performance</h4>
+        <h3 class="text-bolder">80%</h3>
+      </div>
+      <div class="row availableCard p-2 my-5">
+        <h4>Quality</h4>
+        <h3 class="text-bolder">72%</h3>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="row p-2 cardd">
+        <div class="row justify-content-between ">
+          <div class="col-md-4">
+            <h5>EUR</h5>
+          </div>
+          <div class="col-md-4">
+            <h5>3.20</h5>
+          </div>
+        </div>
+        <div class="row my-3 justify-content-between ">
+          <div class="col-md-8">
+            <p>Total Energy Consumption</p>
+          </div>
+          <div class="col-md-4">
+            <p>119 (KWH)</p>
+          </div>
+        </div>
+      </div>
+      <div class="row my-3 cardd">
+        <div class="row justify-content-between ">
+          <div class="col-md-4">
+            <h5>WUR</h5>
+          </div>
+          <div class="col-md-4">
+            <h5>5.11</h5>
+          </div>
+          <div class="row my-3 justify-content-between ">
+            <div class="col-md-8">
+              <p>Total Water Consumption</p>
+            </div>
+            <div class="col-md-4">
+              <p>13.195 (m3)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row gap-2 ">
+        <div class="col-md-4 availableCard p-2 ">
+          <h5>Average Cycle Time</h5>
+          <h3 class="text-bolder">14000</h3>
+          <p>BPH</p>
+        </div>
+        <div class="col-md-4 availableCard p-2 " style="width: 29%">
+          <h5>Average Speed</h5>
+          <h3 class="text-bolder">10900</h3>
+          <p>BPH</p>
+        </div>
+        <div class="col-md-4 availableCard p-2 ">
+          <h5>Top Material consumed</h5>
+          <p class="text-bolder">Benzalkonium Chloride</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-2 cardd p-3">
+      <h4>YIELD</h4>
+      <div class="row justify-content-between ">
+        <div class="col-8">
+          <p>Benzalkonium Chloride</p>
+        </div>
+        <div class="col-3">
+          <p>92.90%</p>
+        </div>
+      </div>
+      <div class="row justify-content-between ">
+        <div class="col-8">
+          <p>Polyquad</p>
+        </div>
+        <div class="col-3">
+          <p>92.90%</p>
+        </div>
+      </div>
+      <div class="row justify-content-between ">
+        <div class="col-8">
+          <p>Sodium Borate</p>
+        </div>
+        <div class="col-3">
+          <p>92.90%</p>
+        </div>
+      </div>
+      <div class="row justify-content-center ">
+        <div class="col-5">
+          <button pButton pRipple type="button" label="More Details" (click)="getYieldDetails()"
+            class="p-button-secondary"></button>
+        </div>
+      </div>
+      <div class="row justify-content-between ">
+        <div class="col-8">
+          <p>Perform Yield</p>
+        </div>
+        <div class="col-3">
+          <p>80.90%</p>
+        </div>
+      </div>
+      <div class="row justify-content-between ">
+        <div class="col-8">
+          <p>Bottle Yield</p>
+        </div>
+        <div class="col-3">
+          <p>80.90%</p>
+        </div>
+      </div>
+      <div class="row justify-content-between ">
+        <div class="col-8">
+          <p>NRB Yield</p>
+        </div>
+        <div class="col-3">
+          <p>75.90%</p>
+        </div>
+      </div>
+      <div class="row justify-content-center ">
+        <div class="col-5">
+          <button pButton pRipple type="button" label="More Details" (click)="getYieldDetails()"
+            class="p-button-secondary"></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row gap-2 my-3 ">
+    <div class="col-md-3 cardd p-2 totalSku">
+      <h4>SKU Status</h4>
+      <div class="row">
+        <div class="col-md-8">
+          <p-calendar [(ngModel)]="rangeDates" styleClass="w-100" placeholder="Select Range" selectionMode="range"
+            [readonlyInput]="true" inputId="range"></p-calendar>
+        </div>
+        <div class="col-md-4">
+          <button pButton pRipple type="button" label="Search" class="p-button-secondary w-100"></button>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <p-table [value]="skuStatus">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>SKU</th>
+              <th>Batch Number</th>
+              <th>Status</th>
+
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-product>
+            <tr>
+              <td>{{ product.sku }}</td>
+              <td>{{ product.batchNumber }}</td>
+              <td>{{ product.status }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="row cardd ">
+        <h4>Loss Analysis</h4>
+        <apx-chart [legend]="barChartOptions.legend" [dataLabels]="barChartOptions.dataLabels"
+          [series]="barChartOptions.series" [colors]="barChartOptions.colors" [grid]="barChartOptions.grid"
+          [chart]="barChartOptions.chart" [xaxis]="barChartOptions.xaxis" [yaxis]="barChartOptions.yaxis"
+          [annotations]="barChartOptions.annotations" [tooltip]="barChartOptions.tooltip">
+        </apx-chart>
+      </div>
+
+      <div class="row cardd mt-3 ">
+        <h4>Performance Analysis</h4>
+        <div id="chart">
+          <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [yaxis]="chartOptions.yaxis"
+            [xaxis]="chartOptions.xaxis" [labels]="chartOptions.labels" [stroke]="chartOptions.stroke"
+            [title]="chartOptions.title" [dataLabels]="chartOptions.dataLabels" [fill]="chartOptions.fill"
+            [tooltip]="chartOptions.tooltip"></apx-chart>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-md-3 cardd">
+      <app-factories-tree></app-factories-tree>
+    </div>
+
+  </div>
+
+
+</div>
