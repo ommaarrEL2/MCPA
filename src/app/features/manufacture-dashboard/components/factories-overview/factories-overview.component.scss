@@ -1,4 +1,4 @@
-.card-arrow {
+.card-overview {
   background-color: #fff;
   cursor: pointer;
   width: 100%;
@@ -28,14 +28,13 @@
 
 .top-SKU-produced {
   width: 100%;
-  height: 40%;
+  height: 20%;
   background: #f3f3f3 0% 0% no-repeat padding-box;
 }
 
 .cardd {
   background-color: #ffffff;
-  box-shadow: 0px 0px 6px #00000052;
-  // overflow: hidden;
+  box-shadow: 0px 0px 3px #00000052;
 }
 
 .p-tree {
@@ -43,7 +42,6 @@
   background: #ffffff;
   color: #495057;
   padding: 0 !important;
-  /* border-radius: 3px; */
 }
 
 .p-tree .p-tree-container .p-treenode .p-treenode-content.p-highlight {

@@ -1,7 +1,7 @@
 <div class="container-fluid p-3">
-  <div class="row gap-3 my-3 ">
-    <div class="col-md-3 cardd ">
-      <div class="card-overview p-3 ">
+  <div class="row my-3 ">
+    <div class="col-md-3 ">
+      <div class="card-overview cardd p-3 h-100 ">
         <h4>Total Production</h4>
 
         <div class="parts my-5 w-100 row justify-content-between" (click)="getTotalParts()">
@@ -43,133 +43,106 @@
       </div>
     </div>
 
-    <div class="col-md-2 cardd" style="width: 13%">
-      <h4>SLE</h4>
-      <div class="row justify-content-between ">
-        <div class="col-6">
-          <p>Target SLE</p>
+    <div class="col-md-2">
+      <div class="cardd p-2 h-100">
+        <h4>SLE</h4>
+        <div class="row justify-content-between ">
+          <div class="col-6">
+            <p>Target SLE</p>
+          </div>
+          <div class="col-3">
+            <p>80%</p>
+          </div>
         </div>
-        <div class="col-3">
-          <p>80%</p>
+        <div class="d-flex flex-column align-items-center">
+          <apx-chart [series]="radialchartOptions1?.series" [chart]="radialchartOptions1?.chart"
+            [plotOptions]="radialchartOptions1?.plotOptions" [labels]="radialchartOptions1?.labels"></apx-chart>
         </div>
-      </div>
-      <div class="d-flex flex-column align-items-center">
-        <apx-chart [series]="radialchartOptions1?.series" [chart]="radialchartOptions1?.chart"
-          [plotOptions]="radialchartOptions1?.plotOptions" [labels]="radialchartOptions1?.labels"></apx-chart>
       </div>
     </div>
 
     <div class="col-md-2">
-      <div class="row availableCard p-2 ">
-        <h4>Availability</h4>
-        <h3 class="text-bolder">98%</h3>
-      </div>
-      <div class="row availableCard p-3 my-4 ">
-        <h4>Performance</h4>
-        <h3 class="text-bolder">80%</h3>
-      </div>
-      <div class="row availableCard p-2 my-4">
-        <h4>Quality</h4>
-        <h3 class="text-bolder">72%</h3>
+      <div class="p-2 h-100 ">
+        <div class="row availableCard p-2 ">
+          <h4>Availability</h4>
+          <h3 class="text-bolder">98%</h3>
+        </div>
+        <div class="row availableCard p-3 my-4 ">
+          <h4>Performance</h4>
+          <h3 class="text-bolder">80%</h3>
+        </div>
+        <div class="row availableCard p-2 my-4">
+          <h4>Quality</h4>
+          <h3 class="text-bolder">72%</h3>
+        </div>
       </div>
     </div>
 
     <div class="col-md-3">
       <div class="row p-2 cardd">
         <div class="row justify-content-between ">
-          <div class="col-md-4">
+          <div class="col-4">
             <h5>EUR</h5>
           </div>
-          <div class="col-md-4">
+          <div class="col-4">
             <h5>3.20</h5>
           </div>
         </div>
         <div class="row my-3 justify-content-between ">
-          <div class="col-md-8">
+          <div class="col-8">
             <p>Total Energy Consumption</p>
           </div>
-          <div class="col-md-4">
+          <div class="col-4">
             <p>119 (KWH)</p>
           </div>
         </div>
       </div>
       <div class="row my-3 cardd">
         <div class="row justify-content-between ">
-          <div class="col-md-4">
+          <div class="col-4">
             <h5>WUR</h5>
           </div>
-          <div class="col-md-4">
+          <div class="col-4">
             <h5>5.11</h5>
           </div>
           <div class="row my-3 justify-content-between ">
-            <div class="col-md-8">
+            <div class="col-8">
               <p>Total Water Consumption</p>
             </div>
-            <div class="col-md-4">
+            <div class="col-4">
               <p>13.195 (m3)</p>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="row gap-2 ">
-        <div class="col-md-4 availableCard p-2 ">
-          <h5>Average Speed</h5>
-          <h3 class="text-bolder">12000</h3>
-          <p>BPH</p>
-        </div>
-        <div class="col-md-4 availableCard p-2 " style="width: 29%">
-          <h5>Actual Max Speed</h5>
-          <h3 class="text-bolder">10900</h3>
-          <p>BPH</p>
-        </div>
-        <div class="col-md-4 availableCard p-2 ">
-          <h5>Standard speed</h5>
-          <h3 class="text-bolder">13000</h3>
-          <p>BPH</p>
-        </div>
-      </div>
-
-
-    </div>
-
-    <div class="col-md-2 cardd">
-      <h4>SKU</h4>
-      <p-table [value]="skuStatus">
-        <ng-template pTemplate="header">
-          <tr>
-            <th>SKU</th>
-            <th>Batch Number</th>
-            <th>Status</th>
-
-          </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-product>
-          <tr>
-            <td>{{ product.sku }}</td>
-            <td>{{ product.batchNumber }}</td>
-            <td>{{ product.status }}</td>
-          </tr>
-        </ng-template>
-      </p-table>
-    </div>
-
-  </div>
-
-  <div class="row gap-2 my-3">
-    <div class="col-md-3 cardd p-2">
-      <h4>Machines Status</h4>
       <div class="row">
-        <div class="col-md-8">
-          <p-calendar [(ngModel)]="rangeDates" styleClass="w-100" placeholder="Select Range" selectionMode="range"
-            [readonlyInput]="true" inputId="range"></p-calendar>
+        <div class="col-md-4 ">
+          <div class="availableCard p-2 ">
+            <h5>Average Speed</h5>
+            <h3 class="text-bolder">12000</h3>
+            <p>BPH</p>
+          </div>
         </div>
-        <div class="col-md-4">
-          <button pButton pRipple type="button" label="Search" class="p-button-secondary w-100"></button>
+        <div class="col-md-4 ">
+          <div class="availableCard p-2 ">
+            <h5>Actual Max Speed</h5>
+            <h3 class="text-bolder">10900</h3>
+            <p>BPH</p>
+          </div>
+        </div>
+        <div class="col-md-4 ">
+          <div class="availableCard p-2 ">
+            <h5>Standard speed</h5>
+            <h3 class="text-bolder">13000</h3>
+            <p>BPH</p>
+          </div>
         </div>
       </div>
+    </div>
 
-      <div class="row mt-2">
+    <div class="col-md-2 ">
+      <div class="cardd p-2 h-100">
+        <h4>SKU</h4>
         <p-table [value]="skuStatus">
           <ng-template pTemplate="header">
             <tr>
@@ -189,8 +162,45 @@
         </p-table>
       </div>
     </div>
+  </div>
 
-    <div class="col-md-6 p-2 " style="width: 49%;">
+  <div class="row my-3">
+    <div class="col-md-3 ">
+      <div class="cardd h-100 p-2">
+        <h4>Machines Status</h4>
+        <div class="row">
+          <div class="col-8">
+            <p-calendar [(ngModel)]="rangeDates" styleClass="w-100" placeholder="Select Range" selectionMode="range"
+              [readonlyInput]="true" inputId="range"></p-calendar>
+          </div>
+          <div class="col-4">
+            <button pButton pRipple type="button" label="Search" class="p-button-secondary w-100"></button>
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <p-table [value]="skuStatus">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>SKU</th>
+                <th>Batch Number</th>
+                <th>Status</th>
+
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+              <tr>
+                <td>{{ product.sku }}</td>
+                <td>{{ product.batchNumber }}</td>
+                <td>{{ product.status }}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6 p-2 ">
 
       <div class="row cardd">
         <!-- <apx-chart [series]="chartData.series" [chart]="chartData.chart" [dataLabels]="chartData.dataLabels"
@@ -247,9 +257,10 @@
 
     </div>
 
-    <div class="col-md-3 cardd ">
-      <app-factories-tree></app-factories-tree>
+    <div class="col-md-3">
+      <div class="cardd p-2 h-100">
+        <app-factories-tree></app-factories-tree>
+      </div>
     </div>
-
   </div>
 </div>

@@ -2,40 +2,40 @@
   <div class="container-fluid px-0">
     <div class="row">
       <div class="config-form shadow-none">
-        <form action="">
+        <form [formGroup]="roomForm" (ngSubmit)="onSubmit()">
           <div class="row">
             <div class="col-md-6">
               <div
                 class="form-group mb-4 d-flex justify-content-between align-items-center"
               >
-                <label for="roomName">Room Name</label>
+                <label for="name">Room Name</label>
                 <input
                   type="text"
                   class="form-control w-50"
-                  id="roomName"
-                  formControlName="roomName"
+                  id="name"
+                  formControlName="name"
                 />
               </div>
               <div
                 class="form-group mb-4 d-flex justify-content-between align-items-center"
               >
-                <label for="roomNumber">Room Number</label>
+                <label for="num">Room Number</label>
                 <input
                   type="text"
                   class="form-control w-50"
-                  id="roomNumber"
-                  formControlName="roomNumber"
+                  id="num"
+                  formControlName="num"
                 />
               </div>
               <div
                 class="form-group mb-4 d-flex justify-content-between align-items-center"
               >
-                <label for="QRCode">QR Code</label>
+                <label for="qrCode">QR Code</label>
                 <input
                   type="text"
                   class="form-control w-50"
-                  id="QRCode"
-                  formControlName="QRCode"
+                  id="qrCode"
+                  formControlName="qrCode"
                 />
               </div>
               <div
@@ -56,23 +56,23 @@
               <div
                 class="form-group mb-4 d-flex justify-content-between align-items-center"
               >
-                <label for="roomFunction">Room Function</label>
+                <label for="function">Room Function</label>
                 <input
                   type="text"
                   class="form-control w-50"
-                  id="roomFunction"
-                  formControlName="roomFunction"
+                  id="function"
+                  formControlName="function"
                 />
               </div>
               <div
                 class="form-group mb-4 d-flex justify-content-between align-items-center"
               >
-                <label for="roomLocation">Room Location</label>
+                <label for="location">Room Location</label>
                 <input
                   type="text"
                   class="form-control w-50"
-                  id="roomLocation"
-                  formControlName="roomLocation"
+                  id="location"
+                  formControlName="location"
                 />
               </div>
             </div>
@@ -85,3 +85,4 @@
     </div>
   </div>
 </section>
+<p-toast></p-toast>

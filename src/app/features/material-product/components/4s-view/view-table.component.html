@@ -1,0 +1,140 @@
+<section class="view">
+  <div class="row justify-content-end">
+    <div class="col-md-4">
+      <p-calendar styleClass="w-100" [(ngModel)]="fourSDate" (onSelect)="changeDate($event)" [showIcon]="true"
+        inputId="icon"></p-calendar>
+    </div>
+  </div>
+
+  <div>
+    <div class="row p-2 g-5 mb-3">
+      <div class="col-md-6">
+        <div class="form-table position-relative">
+          <h3 class="p-3">Pre-process Quarantine</h3>
+          <div class="sku-table">
+            <p-table [scrollable]="true" scrollHeight="20rem" [value]="PreProcessQuarantine">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th>Job Order</th>
+                  <th>Product</th>
+                  <th>Batch Code</th>
+                  <th>TimeIn</th>
+                  <th>TimeOut</th>
+                  <th>Average Cycle</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-product>
+                <tr>
+                  <td>{{product.jobOrderCode}}</td>
+                  <td>{{product.productName}}</td>
+                  <td>{{product.batchCode}}</td>
+                  <td>{{product.timeIn | date :('HH:mm a') }}</td>
+                  <td>{{product.timeOut | date :('HH:mm a')}}</td>
+                  <td>{{product.averageCycle}}</td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+          <div class="rdi-arrow d-flex align-items-center justify-content-center">
+            <i class="pi pi-angle-right text-white fs-1"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-table position-relative">
+          <h3 class="p-3">Set of Processes</h3>
+          <div class="sku-table">
+            <p-table [scrollable]="true" scrollHeight="20rem" [value]="setOfProcesses">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th>Job Order</th>
+                  <th>Product</th>
+                  <th>Batch Code</th>
+                  <th>TimeIn</th>
+                  <th>TimeOut</th>
+                  <th>Average Cycle</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-product>
+                <tr>
+                  <td>{{product.jobOrderCode}}</td>
+                  <td>{{product.productName}}</td>
+                  <td>{{product.batchCode}}</td>
+                  <td>{{product.timeIn | date :('HH:mm a') }}</td>
+                  <td>{{product.timeOut | date :('HH:mm a')}}</td>
+                  <td>{{product.averageCycle}}</td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+          <div class="down-arrow d-flex align-items-center justify-content-center">
+            <i class="pi pi-angle-down text-white fs-1"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row p-2 g-5">
+      <div class="col-md-6">
+        <div class="form-table position-relative">
+          <h3 class="p-3">Finished Product Store</h3>
+          <div class="sku-table">
+            <p-table [scrollable]="true" scrollHeight="20rem" [value]="finishedProductStore">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th>Job Order</th>
+                  <th>Product</th>
+                  <th>Batch Code</th>
+                  <th>TimeIn</th>
+                  <th>TimeOut</th>
+                  <th>Average Cycle</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-product>
+                <tr>
+                  <td>{{product.jobOrderCode}}</td>
+                  <td>{{product.productName}}</td>
+                  <td>{{product.batchCode}}</td>
+                  <td>{{product.timeIn | date :('HH:mm a') }}</td>
+                  <td>{{product.timeOut | date :('HH:mm a')}}</td>
+                  <td>{{product.averageCycle}}</td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+          <div class="rdi-arrow d-flex align-items-center justify-content-center">
+            <i class="pi pi-angle-right text-white fs-1"></i>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-table">
+          <h3 clas s="p-3">Post Quarantine Store</h3>
+          <div class="sku-table">
+            <p-table [scrollable]="true" scrollHeight="20rem" [value]="postQuarantineStore">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th>Job Order</th>
+                  <th>Product</th>
+                  <th>Batch Code</th>
+                  <th>TimeIn</th>
+                  <th>TimeOut</th>
+                  <th>Average Cycle</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-product>
+                <tr>
+                  <td>{{product.jobOrderCode}}</td>
+                  <td>{{product.productName}}</td>
+                  <td>{{product.batchCode}}</td>
+                  <td>{{product.timeIn | date :('HH:mm a') }}</td>
+                  <td>{{product.timeOut | date :('HH:mm a')}}</td>
+                  <td>{{product.averageCycle}}</td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

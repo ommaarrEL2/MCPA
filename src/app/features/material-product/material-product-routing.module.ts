@@ -1,11 +1,13 @@
 import { RdiViewComponent } from './components/rdi-view/rdi-view.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MaterialProductComponent } from './material-product.component';
+import { MaterialOverviewComponent } from './components/material-overview/material-overview.component';
+import { MaterialProductComponent } from './components/batches-details/material-product.component';
 
 const routes: Routes = [
-  { path: '', component: MaterialProductComponent },
+  { path: '', component: MaterialOverviewComponent },
   { path: 'rdi', component: RdiViewComponent },
+  { path: 'batches', component: MaterialProductComponent },
 ];
 
 @NgModule({

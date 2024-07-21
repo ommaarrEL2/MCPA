@@ -1,0 +1,82 @@
+<div class="col-md-12 vh-100 layout">
+
+  <div class="imgBack py-5">
+    <div id="particles-js"></div>
+    <div class="row w-100  justify-content-center   d-flex align-items-center ">
+      <div class="col-md-3  ">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6 m-auto">
+                <div class="animate__animated animate__fadeIn shadow animate__delay-1s p-2 bg-  bg-opacity-25"
+                  (click)="robot()" placement="end" ngbPopover="Welcome to Genie Sphere MCBA System."
+                  style="border-radius: 50%; border: solid 5px #fdfdff;position: relative; z-index: 9999; cursor: pointer;">
+                  <img height="150" src="/assets/images/73234-robot-assistant-online-manager.gif"
+                    class="img-fluid rounded-circle  ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                    alt="" />
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="auth-form-wrapper px-4 py-5">
+                  <a routerLink="." class="nobleui-logo d-block mb-2">MCPA <span>Genie Sphere</span></a>
+                  <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.</h5>
+                  <form class="forms-sample" [formGroup]="loginForm" (ngSubmit)="onLoggedin(loginForm)">
+                    <div *ngIf="!isloading">
+                      <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Username"
+                          name="username" formControlName="username">
+
+                        <div *ngIf="loginForm.get('username')?.errors !=null && loginForm.get('username')?.touched"
+                          role="alert">
+                          <p-message *ngIf="loginForm.get('username')?.errors?.['required']" severity="error"
+                            text="Username Is Required"></p-message>
+                        </div>
+                      </div>
+                      <div class="mb-3">
+                        <label class="font-weight-bolder form-label" for="exampleInputPassword1 ">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1"
+                          autocomplete="current-password" placeholder="Password" formControlName="password">
+                        <div *ngIf="loginForm.get('password')?.errors !=null && loginForm.get('password')?.touched"
+                          role="alert">
+                          <p-message *ngIf="loginForm.get('password')?.errors?.['required']" severity="error"
+                            text="Password is required"></p-message>
+                        </div>
+                      </div>
+                      <div class="form-check mb-3">
+                        <input type="checkbox" class="form-check-input" id="authCheck">
+                        <label class="form-check-label" for="authCheck">
+                          Remember me
+                        </label>
+                      </div>
+                      <div>
+                        <button type="submit" class="btn btn-primary px-5 me-2 mb-2 mb-md-0">Login</button>
+                        <!-- <button type="button" class="btn btn-outline-primary btn-icon-text mb-2 mb-md-0">
+                              <i class="feather icon-twitter btn-icon-prepend"></i>
+                              Login with twitter
+                            </button> -->
+                      </div>
+                    </div>
+
+                    <!-- <a routerLink="/auth/register" class="d-block mt-3 text-muted">Not a user? Sign up</a> -->
+                  </form>
+                  <div class=" my-4 d-flex justify-content-center" *ngIf="isloading">
+                    <app-loading></app-loading>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<p-toast></p-toast>

@@ -5,7 +5,7 @@
   <div class="container-fluid p-4">
     <div class="row">
       <div class="config-form system-form p-5">
-        <form action="">
+        <form [formGroup]="systemForm" (ngSubmit)="onSubmit()">
           <div class="row">
             <div class="col-md-6">
               <div
@@ -22,19 +22,19 @@
               <div
                 class="form-group mb-4 d-flex justify-content-between align-items-center"
               >
-                <label for="serverUrl">Server URL</label>
+                <label for="serverURL">Server URL</label>
                 <input
                   type="text"
                   class="form-control w-50"
-                  id="serverUrl"
-                  formControlName="serverUrl"
+                  id="serverURL"
+                  formControlName="serverURL"
                 />
               </div>
-              <div class="config-customer-calendar my-3">
+              <!-- <div class="config-customer-calendar my-3">
                 <a routerLink="/setting/customerCalendar"
                   >Configure Customer calendar</a
                 >
-              </div>
+              </div> -->
               <div
                 class="form-group mb-4 d-flex justify-content-between align-items-center"
               >
@@ -88,12 +88,12 @@
               <div
                 class="form-group mb-4 d-flex justify-content-between align-items-center"
               >
-                <label for="databaseServerIp">Database Server IP</label>
+                <label for="databaseServerIP">Database Server IP</label>
                 <input
                   type="text"
                   class="form-control w-50"
-                  id="databaseServerIp"
-                  formControlName="databaseServerIp"
+                  id="databaseServerIP"
+                  formControlName="databaseServerIP"
                 />
               </div>
               <div
@@ -111,7 +111,7 @@
           </div>
           <div class="group-btn d-flex justify-content-center pt-5">
             <button class="main-btn me-5">Save</button>
-            <button class="close-btn">Cancel</button>
+            <button type="reset" class="close-btn">Reset</button>
           </div>
         </form>
       </div>
@@ -119,3 +119,4 @@
   </div>
   <!-- <app-footer></app-footer> -->
 </section>
+<p-toast></p-toast>

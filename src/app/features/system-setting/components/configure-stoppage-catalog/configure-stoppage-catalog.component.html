@@ -1,1 +1,172 @@
-<p>configure-stoppage-catalog works!</p>
+<section class="config-sku">
+  <app-navbar></app-navbar>
+  <app-shared-header [headertext]="'Configure Stoppage Catalog'">
+  </app-shared-header>
+  <div class="container-fluid my-3">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="config-form px-4 py-5">
+          <form [formGroup]="form">
+            <div
+              class="form-group mb-4 d-flex justify-content-between align-items-center"
+            >
+              <label for="code"
+                >Stoppage Name<span class="text-danger">*</span></label
+              >
+              <div
+                class="d-flex flex-column justify-content-center align-items-start w-50"
+              >
+                <input
+                  type="text"
+                  class="form-control w-100"
+                  id="stopName"
+                  formControlName="stopName"
+                />
+                <div
+                  class="text-center"
+                  *ngIf="
+                    form.get('stopName')?.errors &&
+                    form.get('stopName')?.touched
+                  "
+                >
+                  <p
+                    *ngIf="form.get('stopName')?.getError('required')"
+                    class="text-danger"
+                  >
+                    Stoppage Name is Required
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div
+              class="form-group mb-4 d-flex justify-content-between align-items-center"
+            >
+              <label for="code">Description</label>
+              <!-- <input
+                type="text"
+                class="form-control w-50"
+                id="code"
+                formControlName="description"
+              /> -->
+              <textarea
+                rows="5"
+                class="form-control w-50"
+                id="code"
+                formControlName="description"
+                cols="30"
+                pInputTextarea
+              ></textarea>
+            </div>
+            <div
+              class="form-group mb-4 d-flex justify-content-between align-items-center"
+            >
+              <label for="code">Reason</label>
+              <input
+                type="text"
+                class="form-control w-50"
+                id="code"
+                formControlName="stopReason"
+              />
+            </div>
+            <div
+              class="form-group mb-4 d-flex justify-content-between align-items-center"
+            >
+              <label for="createdby">Created by</label>
+              <input
+                type="text"
+                class="form-control w-50"
+                id="createdby"
+                formControlName="createdby"
+              />
+            </div>
+            <!-- <div
+              class="form-group mb-4 d-flex justify-content-between align-items-center"
+            >
+              <label for="code">Status</label>
+              <select
+                class="form-select w-50"
+                aria-label="Default select example"
+                id="status"
+                formControlName="status"
+              >
+                <option value="1">Active</option>
+                <option value="2">Not active</option>
+              </select>
+            </div> -->
+            <div
+              class="form-group mb-4 d-flex justify-content-between align-items-center"
+            >
+              <label for="type">Type</label>
+              <p-dropdown
+                class="w-50"
+                [options]="typeList"
+                formControlName="stoppageTypeId"
+                optionLabel="type"
+                optionValue="id"
+                placeholder="Select Stop Type"
+              ></p-dropdown>
+            </div>
+            <div class="group-btn d-flex justify-content-evenly pt-5">
+              <button
+                (click)="onSubmit()"
+                class="main-btn"
+                type="submit"
+                [disabled]="form.invalid"
+              >
+                Save
+              </button>
+              <button class="close-btn" type="reset">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="form-table p-3">
+          <h3>Stoppage</h3>
+          <div class="sku-table">
+            <p-table [value]="stoppageList">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th>Name</th>
+                  <th>Description</th>
+                  <th>Created by</th>
+                  <th>Reason</th>
+                  <th>Type</th>
+                  <th>Actions</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-product>
+                <tr>
+                  <td>{{ product.stopName }}</td>
+                  <td>{{ product.description }}</td>
+                  <td>{{ product.createdby }}</td>
+                  <td>{{ product.stopReason }}</td>
+                  <td>{{ product.stoppageTypeName }}</td>
+                  <td>
+                    <i
+                      class="pi pi-file-edit pe-2"
+                      (click)="initForm(product); stoppageId = product.id"
+                    ></i>
+                    <i
+                      class="pi pi-trash"
+                      (click)="confirmDelete(product.id)"
+                    ></i>
+                  </td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <app-footer></app-footer> -->
+</section>
+
+<!-- Delete Dialog -->
+<p-toast></p-toast>
+<p-confirmDialog
+  [style]="{ width: '50vw' }"
+  [baseZIndex]="10000"
+  rejectButtonStyleClass="p-button-text"
+></p-confirmDialog>

@@ -1,0 +1,82 @@
+:host {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgBack {
+  background-color: #388cd7;
+  height: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.layout {
+  overflow: hidden;
+  position: relative;
+  padding: 0px;
+  z-index: 100;
+  height: inherit;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image: url("https://img.freepik.com/free-vector/cartoon-gas-station-background_52683-75085.jpg?w=1380&t=st=1667295821~exp=1667296421~hmac=39de62fabc3c88809fe8d2afc41ac97f21ca06793308a4b49f71a98458a19220");
+}
+
+.SideCard {
+  position: relative;
+  left: 9%;
+  transition: all 1s;
+  cursor: pointer;
+}
+
+/* ---- reset ---- */
+canvas {
+  display: block;
+  vertical-align: bottom;
+} /* ---- particles.js container ---- */
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+} /* ---- stats.js ---- */
+.count-particles {
+  background: #000022;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  width: 80px;
+  color: #13e8e9;
+  font-size: 0.8em;
+  text-align: left;
+  text-indent: 4px;
+  line-height: 14px;
+  padding-bottom: 2px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+.js-count-particles {
+  font-size: 1.1em;
+}
+#stats,
+#stats {
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
+}
+.count-particles {
+  border-radius: 0 0 3px 3px;
+}
+.nobleui-logo {
+  font-weight: 700;
+  font-size: 25px;
+  color: #000865;
+  span {
+    color: #388cd7;
+    font-weight: 300;
+  }
+}

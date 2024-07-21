@@ -2,40 +2,44 @@
   <div class="container-fluid px-0">
     <div class="row">
       <div class="config-form shadow-none">
-        <form action="">
+        <form [formGroup]="scaleForm" (ngSubmit)="onSubmit()">
           <div class="row">
             <div class="col-md-6">
               <div
                 class="form-group mb-4 d-flex justify-content-between align-items-center"
               >
                 <label for="plant">Plant</label>
-                <input
-                  type="text"
-                  class="form-control w-50"
-                  id="plant"
-                  formControlName="plant"
-                />
+                <p-dropdown
+                  class="w-50"
+                  [options]="plantsList"
+                  formControlName="plantId"
+                  optionLabel="name"
+                  optionValue="id"
+                  placeholder="Select SKU Plant"
+                ></p-dropdown>
               </div>
               <div
                 class="form-group mb-4 d-flex justify-content-between align-items-center"
               >
-                <label for="line">Line</label>
-                <input
-                  type="text"
-                  class="form-control w-50"
-                  id="line"
-                  formControlName="line"
-                />
+                <label for="plant">Line</label>
+                <p-dropdown
+                  class="w-50"
+                  [options]="lines"
+                  formControlName="lineId"
+                  optionLabel="name"
+                  optionValue="id"
+                  placeholder="Select Plant"
+                ></p-dropdown>
               </div>
               <div
                 class="form-group mb-4 d-flex justify-content-between align-items-center"
               >
-                <label for="scaleCode">Scale Code</label>
+                <label for="code">Scale Code</label>
                 <input
                   type="text"
                   class="form-control w-50"
-                  id="scaleCode"
-                  formControlName="scaleCode"
+                  id="code"
+                  formControlName="code"
                 />
               </div>
               <div
@@ -43,36 +47,36 @@
               >
                 <label
                   for="
-              scaleStandardInterface"
+              standerInterface"
                   >Scale Standard Interface</label
                 >
                 <input
                   type="text"
                   class="form-control w-50"
-                  id="scaleStandardInterface"
-                  formControlName="scaleStandardInterface"
+                  id="standerInterface"
+                  formControlName="standerInterface"
                 />
               </div>
               <div
                 class="form-group mb-4 d-flex justify-content-between align-items-center"
               >
-                <label for="scaleCapacity">Scale Capacity</label>
+                <label for="capacity">Scale Capacity</label>
                 <input
-                  type="text"
+                  type="number"
                   class="form-control w-50"
-                  id="scaleCapacity"
-                  formControlName="scaleCapacity"
+                  id="capacity"
+                  formControlName="capacity"
                 />
               </div>
               <div
                 class="form-group mb-4 d-flex justify-content-between align-items-center"
               >
-                <label for="scaleLocation">Scale Location</label>
+                <label for="location">Scale Location</label>
                 <input
                   type="text"
                   class="form-control w-50"
-                  id="scaleLocation"
-                  formControlName="scaleLocation"
+                  id="location"
+                  formControlName="location"
                 />
               </div>
             </div>
@@ -91,24 +95,50 @@
               <div
                 class="form-group mb-4 d-flex justify-content-between align-items-center"
               >
-                <label for="QRCode">QR Code</label>
+                <label for="qrCode">QR Code</label>
                 <input
                   type="text"
                   class="form-control w-50"
-                  id="QRCode"
-                  formControlName="QRCode"
+                  id="qrCode"
+                  formControlName="qrCode"
                 />
               </div>
               <div
                 class="form-group mb-4 d-flex justify-content-between align-items-center"
               >
-                <label for="scaleName">Scale Name</label>
+                <label for="name">Scale Name</label>
                 <input
                   type="text"
                   class="form-control w-50"
-                  id="scaleName"
-                  formControlName="scaleName"
+                  id="name"
+                  formControlName="name"
                 />
+              </div>
+              <div
+                class="form-group mb-4 d-flex justify-content-between align-items-center"
+              >
+                <label for="type">Room Name</label>
+                <p-dropdown
+                  class="w-50"
+                  [options]="roomType"
+                  formControlName="roomId"
+                  optionLabel="name"
+                  optionValue="id"
+                  placeholder="Select Room Type"
+                ></p-dropdown>
+              </div>
+              <div
+                class="form-group mb-4 d-flex justify-content-between align-items-center"
+              >
+                <label for="type">Scale Type</label>
+                <p-dropdown
+                  class="w-50"
+                  [options]="typeList"
+                  formControlName="scaleTypeId"
+                  optionLabel="name"
+                  optionValue="id"
+                  placeholder="Select Scale Type"
+                ></p-dropdown>
               </div>
             </div>
           </div>
@@ -120,3 +150,4 @@
     </div>
   </div>
 </section>
+<p-toast></p-toast>

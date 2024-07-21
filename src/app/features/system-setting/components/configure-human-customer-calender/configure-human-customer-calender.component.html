@@ -3,8 +3,8 @@
   <app-shared-header [headertext]="'Configure Customer Calendar'">
   </app-shared-header>
   <div class="container-fluid mt-3">
-    <div class="row pb-2">
-      <div class="col-md-4">
+    <div class="row">
+      <!-- <div class="col-md-4">
         <div class="shift-count pt-4 pb-5 shared-card config-form">
           <span class="px-4">Shift 1 -<span> 28th May 2024</span></span>
           <div
@@ -14,44 +14,25 @@
             <span class="pe-4">4</span>
           </div>
         </div>
-      </div>
+      </div> -->
       <div class="col-md-5">
         <div class="shift-form p-3 config-form">
           <h3 class="mb-4">Add New Shift</h3>
           <div class="row">
-            <form action="">
-              <div
-                class="form-group mb-3 d-flex justify-content-between align-items-center"
-              >
-                <label for="order">Order</label>
-                <input
-                  type="text"
-                  class="form-control w-50"
-                  id="order"
-                  formControlName="sku-order"
-                />
+            <form [formGroup]="shiftForm" (ngSubmit)="onSubmit()">
+              <div class="form-group mb-3 d-flex justify-content-between align-items-center">
+                <label for="orderName">Order</label>
+                <input type="text" class="form-control w-50" id="orderName" formControlName="orderName" />
               </div>
-              <div
-                class="form-group mb-3 d-flex justify-content-between align-items-center"
-              >
+              <div class="form-group mb-3 d-flex justify-content-between align-items-center">
                 <label for="start">Start</label>
-                <input
-                  type="text"
-                  class="form-control w-50"
-                  id="start"
-                  formControlName="sku-start"
-                />
+                <p-calendar formControlName="startTime" [timeOnly]="true" [hourFormat]="'12'" inputId="timeonly"
+                  (onSelect)="setMinEndTime($event)"></p-calendar>
               </div>
-              <div
-                class="form-group mb-3 d-flex justify-content-between align-items-center"
-              >
+              <div class="form-group mb-3 d-flex justify-content-between align-items-center">
                 <label for="end">End</label>
-                <input
-                  type="text"
-                  class="form-control w-50"
-                  id="end"
-                  formControlName="sku-end"
-                />
+                <p-calendar formControlName="endTime" [timeOnly]="true" [hourFormat]="'12'" [minDate]="minEndTime"
+                  inputId="timeonly"></p-calendar>
               </div>
               <div class="group-btn d-flex justify-content-center pt-2">
                 <button class="main-btn px-4 py-1">Add</button>
@@ -60,7 +41,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-3">
+      <!-- <div class="col-md-3">
         <div class="calendar shadow">
           <form action="">
             <p-calendar [inline]="true" [showWeek]="true"></p-calendar>
@@ -69,16 +50,15 @@
             </div>
           </form>
         </div>
-      </div>
-    </div>
-    <div class="row mt-5">
-      <div class="col-md-12">
-        <div class="form-table p-3">
+      </div> -->
+
+      <div class="col-md-7">
+        <div class="form-table py-3">
           <div class="">
-            <table class="table">
+            <!-- <table class="table">
               <thead class="">
                 <tr>
-                  <th></th>
+                  <th>Shifts</th>
                   <th>Shift Start Time</th>
                   <th>Shift End Time</th>
                   <th>Shift Duration</th>
@@ -93,40 +73,47 @@
                   <td>8 H</td>
                   <td>
                     <i class="pi pi-file-edit pe-2"></i>
-                    <i class="pi pi-trash" (click)="displayModal = true"></i>
+                    <i class="pi pi-trash"></i>
                   </td>
                 </tr>
               </tbody>
-            </table>
+            </table> -->
+
+            <p-table [value]="shifts">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th>Shifts</th>
+                  <th>Shift Start Time</th>
+                  <th>Shift End Time</th>
+                  <th>Shift Duration</th>
+                  <th>Actions</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-shift>
+                <tr>
+                  <td>{{ shift.orderName }}</td>
+                  <td>{{ shift.startTime }}</td>
+                  <td>{{ shift.endTime }}</td>
+                  <td>
+                    {{ shift.durationTime | timeFormat }}
+                  </td>
+                  <td>
+                    <i class="pi pi-file-edit pe-2" (click)="shiftId = shift.id; initFormForUpdate(shift)"></i>
+                    <i class="pi pi-trash" (click)="confirmDelete(shift.id)"></i>
+                  </td>
+                </tr>
+              </ng-template>
+            </p-table>
           </div>
         </div>
       </div>
     </div>
+    <!-- <div class="row mt-5">
+
+    </div> -->
   </div>
 </section>
 <!-- Delete Dialog -->
-<p-dialog
-  header="Header"
-  [(visible)]="displayModal"
-  [modal]="true"
-  [style]="{ width: '50vw' }"
-  [draggable]="false"
-  [resizable]="false"
->
-  <p class="m-0">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-    non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-  </p>
-  <ng-template pTemplate="footer">
-    <p-button
-      icon="pi pi-check"
-      (click)="displayModal = false"
-      label="Ok"
-      styleClass="p-button-text"
-    ></p-button>
-  </ng-template>
-</p-dialog>
+<p-toast></p-toast>
+<p-confirmDialog [style]="{ width: '50vw' }" [baseZIndex]="10000"
+  rejectButtonStyleClass="p-button-text"></p-confirmDialog>

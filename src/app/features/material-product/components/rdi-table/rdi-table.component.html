@@ -1,31 +1,39 @@
 <section class="rdi">
+  <div class="row justify-content-end">
+    <div class="col-md-4">
+      <p-calendar styleClass="w-100" [(ngModel)]="rdiDate" (onSelect)="changeDate($event)" [showIcon]="true"
+        inputId="icon"></p-calendar>
+    </div>
+  </div>
   <div class="row p-2 g-5 mb-3">
     <div class="col-md-6">
       <div class="form-table position-relative">
         <h3 class="p-3">Planned SKU’s</h3>
         <div class="sku-table">
-          <table class="table">
-            <thead class="">
+          <p-table [scrollable]="true" scrollHeight="20rem" [value]="plannedSkus">
+            <ng-template pTemplate="header">
               <tr>
                 <th>Job Order</th>
-                <th>SKU</th>
-                <th>Material</th>
-                <th>Material's Quantity</th>
+                <th>Product</th>
+                <!-- <th>Material</th> -->
+                <th>Product's Quantity</th>
                 <th>Line</th>
+                <th>Plant</th>
                 <th>Date</th>
               </tr>
-            </thead>
-            <tbody>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
               <tr>
-                <td>1253</td>
-                <td>LM41691000</td>
-                <td>Benzalkonium Chloride</td>
-                <td>1115345</td>
-                <td>3</td>
-                <td>05/05/2024</td>
+                <td>{{product.jobOrderCode}}</td>
+                <td>{{product.productName}}</td>
+                <!-- <td>{{product.materialName}}</td> -->
+                <td>{{product.quantity}}</td>
+                <td>{{product.lineName}}</td>
+                <td>{{product.plantName}}</td>
+                <td>{{product.date | date }}</td>
               </tr>
-            </tbody>
-          </table>
+            </ng-template>
+          </p-table>
         </div>
         <div class="rdi-arrow d-flex align-items-center justify-content-center">
           <i class="pi pi-angle-right text-white fs-1"></i>
@@ -36,32 +44,32 @@
       <div class="form-table position-relative">
         <h3 class="p-3">Released SKU’s</h3>
         <div class="sku-table">
-          <table class="table">
-            <thead class="">
+          <p-table [scrollable]="true" scrollHeight="20rem" [value]="releasedSKUs">
+            <ng-template pTemplate="header">
               <tr>
                 <th>Job Order</th>
-                <th>SKU</th>
+                <th>Product</th>
                 <th>Material</th>
                 <th>Material's Quantity</th>
                 <th>Line</th>
+                <th>Plant</th>
                 <th>Date</th>
               </tr>
-            </thead>
-            <tbody>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
               <tr>
-                <td>1253</td>
-                <td>LM41691000</td>
-                <td>Benzalkonium Chloride</td>
-                <td>1115345</td>
-                <td>3</td>
-                <td>05/05/2024</td>
+                <td>{{product.jobOrderCode}}</td>
+                <td>{{product.productName}}</td>
+                <td>{{product.materialName}}</td>
+                <td>{{product.quantity}}</td>
+                <td>{{product.lineName}}</td>
+                <td>{{product.plantName}}</td>
+                <td>{{product.date | date }}</td>
               </tr>
-            </tbody>
-          </table>
+            </ng-template>
+          </p-table>
         </div>
-        <div
-          class="down-arrow d-flex align-items-center justify-content-center"
-        >
+        <div class="down-arrow d-flex align-items-center justify-content-center">
           <i class="pi pi-angle-down text-white fs-1"></i>
         </div>
       </div>
@@ -72,28 +80,30 @@
       <div class="form-table position-relative">
         <h3 class="p-3">Intra Logistic</h3>
         <div class="sku-table">
-          <table class="table">
-            <thead class="">
+          <p-table [scrollable]="true" scrollHeight="20rem" [value]="intraLogistic">
+            <ng-template pTemplate="header">
               <tr>
                 <th>Job Order</th>
-                <th>SKU</th>
+                <th>Product</th>
                 <th>Material</th>
                 <th>Material's Quantity</th>
                 <th>Line</th>
+                <th>Plant</th>
                 <th>Date</th>
               </tr>
-            </thead>
-            <tbody>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
               <tr>
-                <td>1253</td>
-                <td>LM41691000</td>
-                <td>Benzalkonium Chloride</td>
-                <td>1115345</td>
-                <td>3</td>
-                <td>05/05/2024</td>
+                <td>{{product.jobOrderCode}}</td>
+                <td>{{product.productName}}</td>
+                <td>{{product.materialName}}</td>
+                <td>{{product.quantity}}</td>
+                <td>{{product.lineName}}</td>
+                <td>{{product.plantName}}</td>
+                <td>{{product.date | date }}</td>
               </tr>
-            </tbody>
-          </table>
+            </ng-template>
+          </p-table>
         </div>
         <div class="rdi-arrow d-flex align-items-center justify-content-center">
           <i class="pi pi-angle-right text-white fs-1"></i>
@@ -102,30 +112,32 @@
     </div>
     <div class="col-md-6">
       <div class="form-table">
-        <h3 class="p-3">Dispensed SKU/Batch</h3>
+        <h3 clas s="p-3">Dispensed SKU/Batch</h3>
         <div class="sku-table">
-          <table class="table">
-            <thead class="">
+          <p-table [scrollable]="true" scrollHeight="20rem" [value]="dispensedSKUBatch">
+            <ng-template pTemplate="header">
               <tr>
                 <th>Job Order</th>
-                <th>SKU</th>
+                <th>Product</th>
                 <th>Material</th>
                 <th>Material's Quantity</th>
                 <th>Line</th>
+                <th>Plant</th>
                 <th>Date</th>
               </tr>
-            </thead>
-            <tbody>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
               <tr>
-                <td>1253</td>
-                <td>LM41691000</td>
-                <td>Benzalkonium Chloride</td>
-                <td>1115345</td>
-                <td>3</td>
-                <td>05/05/2024</td>
+                <td>{{product.jobOrderCode}}</td>
+                <td>{{product.productName}}</td>
+                <td>{{product.materialName}}</td>
+                <td>{{product.quantity}}</td>
+                <td>{{product.lineName}}</td>
+                <td>{{product.plantName}}</td>
+                <td>{{product.date | date }}</td>
               </tr>
-            </tbody>
-          </table>
+            </ng-template>
+          </p-table>
         </div>
       </div>
     </div>

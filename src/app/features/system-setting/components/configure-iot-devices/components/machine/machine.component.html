@@ -2,97 +2,46 @@
   <div class="container-fluid px-0">
     <div class="row">
       <div class="config-form shadow-none">
-        <form action="">
+        <form [formGroup]="machineForm" (ngSubmit)="onSubmit()">
           <div class="row">
             <div class="col-md-6">
-              <div
-                class="form-group mb-4 d-flex justify-content-between align-items-center"
-              >
-                <label for="plant">PLant</label>
-                <select
-                  class="form-select w-50"
-                  aria-label="Default select example"
-                  id="plant"
-                  formControlName="plant"
-                >
-                  <option value="1"></option>
-                  <option value="2"></option>
-                </select>
+              <div class="form-group mb-4 d-flex justify-content-between align-items-center">
+                <label for="plant">Plant</label>
+                <p-dropdown class="w-50" [options]="plantsList" formControlName="plantId" optionLabel="name"
+                  optionValue="id" placeholder="Select Plant"></p-dropdown>
               </div>
-              <div
-                class="form-group mb-4 d-flex justify-content-between align-items-center"
-              >
-                <label for="line">Line</label>
-                <select
-                  class="form-select w-50"
-                  aria-label="Default select example"
-                  id="line"
-                  formControlName="line"
-                >
-                  <option value="1"></option>
-                  <option value="2"></option>
-                </select>
+              <div class="form-group mb-4 d-flex justify-content-between align-items-center">
+                <label for="plant">Line</label>
+                <p-dropdown class="w-50" [options]="lines" formControlName="lineId" optionLabel="name" optionValue="id"
+                  placeholder="Select Line"></p-dropdown>
               </div>
-              <div
-                class="form-group mb-4 d-flex justify-content-between align-items-center"
-              >
-                <label for="machineCode">Machine Code</label>
-                <input
-                  type="text"
-                  class="form-control w-50"
-                  id="machineCode"
-                  formControlName="machineCode"
-                />
+              <div class="form-group mb-4 d-flex justify-content-between align-items-center">
+                <label for="code">Machine Code</label>
+                <input type="text" class="form-control w-50" id="code" formControlName="code" />
               </div>
-              <div
-                class="form-group mb-4 d-flex justify-content-between align-items-center"
-              >
-                <label
-                  for="
-              machineStandardSpeed"
-                  >Machine Standard Speed</label
-                >
-                <input
-                  type="text"
-                  class="form-control w-50"
-                  id="machineStandardSpeed"
-                  formControlName="machineStandardSpeed"
-                />
+              <div class="form-group mb-4 d-flex justify-content-between align-items-center">
+                <label for="
+              standerdSpeed">Machine Standard Speed</label>
+                <input type="text" class="form-control w-50" id="standerdSpeed" formControlName="standerdSpeed" />
               </div>
-              <div
-                class="form-group mb-4 d-flex justify-content-between align-items-center"
-              >
-                <label for="machineFunction">Machine Function</label>
-                <input
-                  type="text"
-                  class="form-control w-50"
-                  id="machineFunction"
-                  formControlName="machineFunction"
-                />
+              <div class="form-group mb-4 d-flex justify-content-between align-items-center">
+                <label for="function">Machine Function</label>
+                <input type="text" class="form-control w-50" id="function" formControlName="function" />
               </div>
-              <div
-                class="form-group mb-4 d-flex justify-content-between align-items-center"
-              >
-                <label for="machineLocation">Machine Location</label>
-                <input
-                  type="text"
-                  class="form-control w-50"
-                  id="machineLocation"
-                  formControlName="machineLocation"
-                />
+              <div class="form-group mb-4 d-flex justify-content-between align-items-center">
+                <label for="location">Machine Location</label>
+                <input type="text" class="form-control w-50" id="location" formControlName="location" />
               </div>
             </div>
             <div class="col-md-6 ps-5">
-              <div
-                class="form-group mb-4 d-flex justify-content-between align-items-center"
-              >
-                <label for="machineName">Machine Name</label>
-                <input
-                  type="text"
-                  class="form-control w-50"
-                  id="machineName"
-                  formControlName="machineName"
-                />
+              <div class="form-group mb-4 d-flex justify-content-between align-items-center">
+                <label for="name">Machine Name</label>
+                <input type="text" class="form-control w-50" id="name" formControlName="name" />
+              </div>
+              <div class="form-group mb-4 d-flex justify-content-between align-items-center">
+                <label for="type">Machine Type</label>
+                <p-dropdown class="w-50" [options]="machineType" formControlName="machineTypeId" optionLabel="type"
+                  optionValue="id" placeholder="Select machine Type"></p-dropdown>
               </div>
             </div>
           </div>
@@ -104,3 +53,4 @@
     </div>
   </div>
 </section>
+<p-toast></p-toast>

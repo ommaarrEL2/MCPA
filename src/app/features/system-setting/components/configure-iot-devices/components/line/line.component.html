@@ -3,45 +3,54 @@
     <div class="row">
       <div class="col-md-6">
         <div class="config-form shadow-none">
-          <form action="">
+          <form [formGroup]="lineForm" (ngSubmit)="onSubmit()">
             <div
               class="form-group mb-4 d-flex justify-content-between align-items-center"
             >
-              <label for="lineName">Line Name</label>
+              <label for="name">Line Name</label>
               <input
                 type="text"
                 class="form-control w-50"
-                id="lineName"
-                formControlName="lineName"
+                id="name"
+                formControlName="name"
               />
             </div>
             <div
               class="form-group mb-4 d-flex justify-content-between align-items-center"
             >
-              <label for="plant">PLant</label>
-              <select
-                class="form-select w-50"
-                aria-label="Default select example"
-                id="plant"
-                formControlName="plant"
-              >
-                <option value="1"></option>
-                <option value="2"></option>
-              </select>
+              <label for="plant">Plant</label>
+              <p-dropdown
+                class="w-50"
+                [options]="plantsList"
+                formControlName="plantId"
+                optionLabel="name"
+                optionValue="id"
+                placeholder="Select SKU Plant"
+              ></p-dropdown>
             </div>
             <div
               class="form-group mb-4 d-flex justify-content-between align-items-center"
             >
-              <label for="standardShift">Change Standard Shift</label>
-              <select
-                class="form-select w-50"
-                aria-label="Default select example"
-                id="standardShift"
-                formControlName="standardShift"
-              >
-                <option value="1"></option>
-                <option value="2"></option>
-              </select>
+              <label for="linesPreShift">Change Standard Shift</label>
+              <p-multiSelect
+                [options]="shiftList"
+                class="w-50"
+                [(ngModel)]="selectedShifts"
+                [ngModelOptions]="{ standalone: true }"
+                defaultLabel="Select Standard Shifts"
+                optionLabel="orderName"
+                optionValue="id"
+                selectedItemsLabel="{0} items selected"
+              ></p-multiSelect>
+
+              <!-- <p-dropdown
+                class="w-50"
+                [options]="shiftList"
+                formControlName="linesPreShift"
+                optionLabel="orderName"
+                optionValue="id"
+                placeholder="Select SKU Shift"
+              ></p-dropdown> -->
             </div>
             <div class="group-btn d-flex justify-content-center pt-5">
               <button class="main-btn mt-5">Save</button>
@@ -52,3 +61,4 @@
     </div>
   </div>
 </section>
+<p-toast></p-toast>

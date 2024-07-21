@@ -1,15 +1,7 @@
-<div class="container-fluid p-3">
+<div class="container-fluid p-2">
   <div class="row justify-content-between">
     <div class="col-md-4">
-      <div class="back text-center d-inline-block">
-        <div class="card-arrow rounded-pill shadow p-1">
-          <i class="pi pi-arrow-left"></i>
-        </div>
-      </div>
-
-      <div class="header ms-3 d-inline-block">
-        <h3>Factories Overview</h3>
-      </div>
+      <app-shared-header [headertext]="'Factories Overview'"></app-shared-header>
     </div>
 
     <!-- <div class="col-md-2">
@@ -17,9 +9,9 @@
         [showClear]="true"></p-dropdown>
     </div> -->
   </div>
-  <div class="row my-4 gap-1">
-    <div class="col-md-3 cardd">
-      <div class="card-overview p-1">
+  <div class="row my-3 g-3">
+    <div class="col-md-3 ">
+      <div class="card-overview cardd h-100 p-3">
         <h4>Total Production</h4>
         <div class="parts my-3 w-100 row justify-content-between" (click)="getTotalParts()">
           <div class="total-parts">
@@ -32,7 +24,6 @@
             <i class="pi pi-angle-right p-1"></i>
           </div>
         </div>
-
         <div class="parts my-3 w-100 row justify-content-between" (click)="getTotalPackets()">
           <div class="total-parts">
             <label>Total Packets</label>
@@ -44,7 +35,6 @@
             <i class="pi pi-angle-right p-1"></i>
           </div>
         </div>
-
         <div class="parts my-3 w-100 row justify-content-between" (click)="getTotalPallets()">
           <div class="total-parts">
             <label>Total Pallets</label>
@@ -59,10 +49,10 @@
       </div>
     </div>
 
-    <div class="col-md-3 cardd" style="width: 18%;">
-      <div class="p-1">
+    <div class="col-md-3 ">
+      <div class="p-1 cardd h-100">
         <div class="text-center">
-          <h5>Total Energy Consumption</h5>
+          <h4>Total Energy Consumption</h4>
           <h4>119 (KWH)</h4>
         </div>
         <p-table [value]="energyConsumption">
@@ -82,8 +72,8 @@
       </div>
     </div>
 
-    <div class="col-md-3 cardd">
-      <div class="card-overview p-1">
+    <div class="col-md-3 ">
+      <div class="card-overview cardd h-100 p-1">
         <div class="card-header text-center">
           <h4>Total Water Consumption</h4>
           <h4>13.195 (m3)</h4>
@@ -105,20 +95,20 @@
       </div>
     </div>
 
-    <div class="col-md-2 cardd">
-      <div class="text-center">
-        <div class="">
+    <div class="col-md-1 ">
+      <div class="text-center cardd h-100 ">
+        <div>
           <h4>Top SKU produced</h4>
         </div>
-        <div class="top-SKU-produced p-3">
+        <div class="top-SKU-produced my-3 p-3">
           <h5>LM41691000</h5>
         </div>
         <h5>1500 KG</h5>
       </div>
     </div>
 
-    <div class="col-md-2 cardd">
-      <div id="chart">
+    <div class="col-md-2 ">
+      <div id="chart" class="cardd h-100">
         <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
           [stroke]="chartOptions.stroke" [markers]="chartOptions.markers" [fill]="chartOptions.fill"
           [title]="chartOptions.title">
@@ -127,55 +117,61 @@
     </div>
   </div>
 
-  <div class="row gap-2">
-    <div class="col-md-4 cardd p-2">
-      <h4>Machines Status</h4>
-      <div class="row">
-        <div class="col-md-8">
-          <p-calendar [(ngModel)]="rangeDates" styleClass="w-100" placeholder="Select Range" selectionMode="range"
-            [readonlyInput]="true" inputId="range"></p-calendar>
+  <div class="row">
+    <div class="col-md-4 ">
+      <div class="cardd h-100 p-1">
+        <h4>Machines Status</h4>
+        <div class="row">
+          <div class="col-8">
+            <p-calendar [(ngModel)]="rangeDates" styleClass="w-100" placeholder="Select Range" selectionMode="range"
+              [readonlyInput]="true" inputId="range"></p-calendar>
+          </div>
+          <div class="col-2">
+            <button pButton pRipple type="button" label="Search" class="p-button-secondary"></button>
+          </div>
         </div>
-        <div class="col-md-2">
-          <button pButton pRipple type="button" label="Search" class="p-button-secondary"></button>
-        </div>
-      </div>
 
-      <div class="row mt-2">
-        <p-table [value]="machineStatus">
-          <ng-template pTemplate="header">
-            <tr>
-              <th>Machine ID</th>
-              <th>Machine Status</th>
-              <th>Active Beacons</th>
-              <th>Inactive Beacons</th>
-              <th>Availability</th>
-            </tr>
-          </ng-template>
-          <ng-template pTemplate="body" let-product>
-            <tr>
-              <td>{{ product.machineID }}</td>
-              <td>{{ product.machineStatus }}</td>
-              <td>{{ product.activeBeacons }}</td>
-              <td>{{ product.inactiveBeacons }}</td>
-              <td>{{ product.availability }}</td>
-            </tr>
-          </ng-template>
-        </p-table>
+        <div class="row mt-2">
+          <p-table [value]="machineStatus">
+            <ng-template pTemplate="header">
+              <tr>
+                <th>Machine ID</th>
+                <th>Machine Status</th>
+                <th>Active Beacons</th>
+                <th>Inactive Beacons</th>
+                <th>Availability</th>
+              </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+              <tr>
+                <td>{{ product.machineID }}</td>
+                <td>{{ product.machineStatus }}</td>
+                <td>{{ product.activeBeacons }}</td>
+                <td>{{ product.inactiveBeacons }}</td>
+                <td>{{ product.availability }}</td>
+              </tr>
+            </ng-template>
+          </p-table>
+        </div>
       </div>
     </div>
 
-    <div class="col-md-6 p-2 cardd" style="width: 40%">
-      <h4>Total Production per Factory</h4>
-      <div id="DrilDownChart"></div>
+    <div class="col-md-5 ">
+      <div class="cardd h-100 p-1">
+        <h4>Total Production per Factory</h4>
+        <div id="DrilDownChart"></div>
+      </div>
     </div>
 
-    <div class="col-md-3 p-3 cardd">
-      <app-factories-tree></app-factories-tree>
+    <div class="col-md-3">
+      <div class="cardd p-1">
+        <app-factories-tree></app-factories-tree>
+      </div>
     </div>
   </div>
 </div>
 
-<p-dialog header="Total Parts" [(visible)]="displayModal" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false"
+<p-dialog header="Total Parts" [(visible)]="displayModal" [modal]="true" [style]="{ width: '80%' }" [draggable]="false"
   [resizable]="false">
   <p-table [columns]="cols" [value]="parts" [tableStyle]="{ 'min-width': '50rem' }">
     <ng-template pTemplate="header" let-columns>

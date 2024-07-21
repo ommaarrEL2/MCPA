@@ -3,30 +3,30 @@
     <div class="row">
       <div class="col-md-6">
         <div class="config-form shadow-none">
-          <form action="">
+          <form [formGroup]="plantForm" (ngSubmit)="onSubmit()">
             <div
               class="form-group mb-4 d-flex justify-content-between align-items-center"
             >
-              <label for="plantName">Plant Name</label>
+              <label for="name">Plant Name</label>
               <input
                 type="text"
                 class="form-control w-50"
-                id="plantName"
-                formControlName="plantName"
+                id="name"
+                formControlName="name"
               />
             </div>
             <div
               class="form-group mb-4 d-flex justify-content-between align-items-center"
             >
-              <label for="plantZone">Plant Zone/Location</label>
+              <label for="location">Plant Zone/Location</label>
               <input
                 type="text"
                 class="form-control w-50"
-                id="plantZone"
-                formControlName="plantZone"
+                id="location"
+                formControlName="location"
               />
             </div>
-            <div
+            <!-- <div
               class="form-group mb-4 d-flex justify-content-between align-items-center"
             >
               <label for="plant">Plant</label>
@@ -36,7 +36,7 @@
                 id="plant"
                 formControlName="plant"
               />
-            </div>
+            </div> -->
             <div class="group-btn d-flex justify-content-center pt-5">
               <button class="main-btn mt-5">Save</button>
             </div>
@@ -46,3 +46,4 @@
     </div>
   </div>
 </section>
+<p-toast></p-toast>

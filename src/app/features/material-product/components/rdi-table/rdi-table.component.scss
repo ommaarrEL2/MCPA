@@ -10,12 +10,12 @@
   }
   .down-arrow {
     position: absolute;
-    bottom: -25%;
+    top: 100%;
     left: 50%;
     transform: translateX(-50%);
     background: #2680eb 0% 0% no-repeat padding-box;
     width: 46px;
-    height: 46px;
+    height: 52px;
   }
   table thead th {
     font-size: 0.8rem;
@@ -28,4 +28,8 @@
   tr {
     font-size: 0.9rem;
   }
+}
+
+.form-table {
+  min-height: 20rem;
 }

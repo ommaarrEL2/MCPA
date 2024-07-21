@@ -9,7 +9,9 @@ import { Router } from '@angular/router';
 export class FactoriesTreeComponent {
   factoryTree!: any[];
   selectedFile: any;
+
   constructor(private router: Router) {}
+
   ngOnInit(): void {
     this.factoryTree = [
       {

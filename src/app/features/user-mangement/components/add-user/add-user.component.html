@@ -1,0 +1,152 @@
+<section class="config-sku">
+  <app-navbar></app-navbar>
+  <app-shared-header [headertext]="'Add User'"> </app-shared-header>
+  <div class="container-fluid my-3">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="config-form px-4 py-5">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-group mb-4 d-flex justify-content-between align-items-center">
+              <label for="name">Full Name<span class="text-danger">*</span></label>
+              <input type="text" class="form-control w-50" id="name" formControlName="full_Name" />
+            </div>
+            <div class="form-group mb-4 d-flex justify-content-between align-items-center">
+              <label for="qrCode">Username<span class="text-danger">*</span></label>
+              <input type="text" class="form-control w-50" id="qrCode" formControlName="user_Name" />
+            </div>
+            <div class="form-group mb-4 d-flex justify-content-between align-items-center">
+              <label for="uid">email</label>
+              <div class="w-50">
+                <input type="email" class="form-control w-100" id="uid" formControlName="email" />
+                <div *ngIf="form.get('email')?.invalid && (form.get('email')?.dirty || form.get('email')?.touched)">
+                  <p-message *ngIf="form.get('email')?.errors?.['email']" severity="error"
+                    text="Email Invalid"></p-message>
+                </div>
+              </div>
+
+            </div>
+            <div class="form-group mb-4 d-flex justify-content-between align-items-center">
+              <label for="createdby">Phone Number</label>
+
+              <div class="w-50">
+                <input type="text" class="form-control w-100" PhoneInputRestrictionDirective id="createdby"
+                  formControlName="phoneNumber" />
+                <div *ngIf="phoneNumber?.invalid && (phoneNumber?.dirty || phoneNumber?.touched)">
+                  <p-message *ngIf="phoneNumber?.errors?.['pattern']" severity="error"
+                    text="Invalid Phone Number"></p-message>
+                </div>
+              </div>
+
+            </div>
+            <div class="form-group mb-4 d-flex justify-content-between align-items-center">
+              <label for="createdby">Password</label>
+              <div class="w-50">
+                <input type="password" class="form-control w-100" PhoneInputRestrictionDirective id="createdby"
+                  formControlName="password" />
+                <div
+                  *ngIf="form.get('password')?.invalid && (form.get('password')?.dirty || form.get('password')?.touched)">
+                  <p-message *ngIf="form.get('password')?.errors?.['pattern']" severity="error"
+                    text="Password must start with an uppercase letter and contain at least one special character."></p-message>
+                </div>
+              </div>
+            </div>
+            <div class="form-group mb-4 d-flex justify-content-between align-items-center">
+              <label for="createdby">User Role</label>
+              <!-- <input type="text" class="form-control w-50" id="createdby" formControlName="userRole" /> -->
+              <div class="w-50">
+                <p-dropdown [options]="rolesList" formControlName="userRole" styleClass="w-100"
+                  placeholder="Select a Role" optionValue="name" optionLabel="name" [showClear]="true"></p-dropdown>
+              </div>
+            </div>
+            <div class="form-group mb-1 d-flex justify-content-between align-items-center">
+              <label for="userActivities" class="form-label">Claims</label>
+            </div>
+            <p-multiSelect [options]="claimsList" [group]="true" [(ngModel)]="selectedClaims" styleClass="w-100"
+              [ngModelOptions]="{standalone: true}" optionValue="value" defaultLabel="Select a Claims"
+              scrollHeight="250px" display="chip">
+              <ng-template let-group pTemplate="group">
+                <div class="flex align-items-center">
+                  <span>{{group.label}}</span>
+                </div>
+              </ng-template>
+            </p-multiSelect>
+            <div class="group-btn d-flex justify-content-evenly pt-5">
+              <button class="main-btn" [disabled]="form.invalid">
+                Save
+              </button>
+              <button class="close-btn" (click)="reset()">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="form-table p-3">
+          <h3>Users</h3>
+          <div class="sku-table">
+            <!-- <p-table [value]="products">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th>Username</th>
+                  <th>Phone</th>
+                  <th>User Role</th>
+                  <th>Email</th>
+                  <th>Actions</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-product>
+                <tr>
+                  <td>{{ product.userName }}</td>
+                  <td>{{ product.phoneNumber }}</td>
+                  <td>{{ product.userRole }}</td>
+                  <td>{{ product.email }}</td>
+                  <td>
+                    <i class="pi pi-file-edit pe-2" (click)="initForm(product); productId = product.id"></i>
+                    <i class="pi pi-trash" (click)="confirmDelete(product.id)"></i>
+                  </td>
+                </tr>
+              </ng-template>
+            </p-table> -->
+            <p-table [value]="usersList" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+              [tableStyle]="{'min-width': '50rem'}"
+              currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+              [rowsPerPageOptions]="[10,25,50]">
+              <ng-template pTemplate="header">
+                <tr>
+                  <th>Username</th>
+                  <th>Phone</th>
+                  <th>User Role</th>
+                  <th>Email</th>
+                  <th>Actions</th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-user>
+                <tr>
+                  <td>{{ user.userName }}</td>
+                  <td>{{ user.phoneNumber }}</td>
+                  <td>{{ user.userRole }}</td>
+                  <td>{{ user.email }}</td>
+                  <td>
+                    <i class="pi pi-file-edit pe-2" (click)="initForm(user); userId = user.id"></i>
+                    <i class="pi pi-trash" (click)="confirmDelete(user.id)"></i>
+                  </td>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="paginatorleft">
+                <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+              </ng-template>
+              <ng-template pTemplate="paginatorright">
+                <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+              </ng-template>
+            </p-table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <app-footer></app-footer> -->
+</section>
+<!-- Delete Dialog -->
+<p-toast></p-toast>
+
+<p-confirmDialog [style]="{ width: '50vw' }" [baseZIndex]="10000"
+  rejectButtonStyleClass="p-button-text"></p-confirmDialog>

@@ -1,5 +1,5 @@
 import { ConfigureStoppageCatalogComponent } from './components/configure-stoppage-catalog/configure-stoppage-catalog.component';
-import { ConfigureHumanCapitalComponent } from './components/configure-human-capital/configure-human-capital.component';
+import { ConfigureManPowerComponent } from './components/configure-man-power/configure-man-power';
 import { ConfigureSystemSettingsComponent } from './components/configure-system-settings/configure-system-settings.component';
 import { ConfigureResourceComponent } from './components/configure-resource/configure-resource.component';
 import { ConfigureIotDevicesComponent } from './components/configure-iot-devices/configure-iot-devices.component';
@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'iotDevice', component: ConfigureIotDevicesComponent },
   { path: 'resource', component: ConfigureResourceComponent },
   { path: 'systemSetting', component: ConfigureSystemSettingsComponent },
-  { path: 'humanCapital', component: ConfigureHumanCapitalComponent },
+  { path: 'manPower', component: ConfigureManPowerComponent },
   { path: 'stoppage', component: ConfigureStoppageCatalogComponent },
   {
     path: 'customerCalendar',

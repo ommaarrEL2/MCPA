@@ -76,11 +76,6 @@ table {
   }
 }
 //  customization
-.customer-calndar {
-  .p-calendar {
-    height: 270px !important;
-  }
-}
 .material-product {
   .p-inputtext {
     padding: 0.1rem 0.5rem;
@@ -90,7 +85,25 @@ table {
 // .p-datepicker {
 //   background-color: transparent !important;
 // }
+
 .p-tree .p-tree-container .p-treenode .p-treenode-content {
   background: #f2f2f2 0% 0% no-repeat padding-box;
   color: #495057;
+}
+
+.p-inline-message.p-inline-message-error {
+  background-color: transparent;
+  border: solid #ff001a;
+  border-width: 0px;
+  color: #ff001b;
+}
+
+ul {
+  padding-left: 0;
+}
+.p-dropdown {
+  width: 100% !important;
+}
+.p-multiselect {
+  width: 100% !important;
 }

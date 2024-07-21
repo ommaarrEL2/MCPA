@@ -69,15 +69,15 @@ export class FactoriesOverviewComponent {
     this.chartOptions = {
       series: [
         {
-          name: 'Series Blue',
+          name: 'Factory 1',
           data: [80, 50, 30, 40, 100, 20],
         },
         {
-          name: 'Series Green',
+          name: 'Factory 2',
           data: [20, 30, 40, 80, 20, 80],
         },
         {
-          name: 'Series Orange',
+          name: 'Factory 3',
           data: [44, 76, 78, 13, 43, 10],
         },
       ],
