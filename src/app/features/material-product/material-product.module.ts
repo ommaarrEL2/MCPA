@@ -13,6 +13,7 @@ import { MaterialProductComponent } from './components/batches-details/material-
 import { TreeModule } from 'primeng/tree';
 import { FormsModule } from '@angular/forms';
 import { TableModule } from 'primeng/table';
+import { TooltipModule } from 'primeng/tooltip';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { TableModule } from 'primeng/table';
     TreeModule,
     FormsModule,
     TableModule,
+    TooltipModule,
   ],
 })
 export class MaterialProductModule {}

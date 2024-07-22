@@ -13,7 +13,7 @@ const routes: Routes = [
     path: 'home',
     loadChildren: () =>
       import('./layout/layout.module').then((m) => m.LayoutModule),
-    canActivate: [authGuard],
+    // canActivate: [authGuard],
   },
   {
     path: 'manufacture',
@@ -21,7 +21,7 @@ const routes: Routes = [
       import(
         './features/manufacture-dashboard/manufacture-dashboard.module'
       ).then((m) => m.ManufactureDashboardModule),
-    canActivate: [authGuard],
+    // canActivate: [authGuard],
   },
   {
     path: 'setting',
@@ -29,7 +29,7 @@ const routes: Routes = [
       import('./features/system-setting/system-setting.module').then(
         (m) => m.SystemSettingModule
       ),
-    canActivate: [authGuard],
+    // canActivate: [authGuard],
   },
   {
     path: 'material',
@@ -37,7 +37,7 @@ const routes: Routes = [
       import('./features/material-product/material-product.module').then(
         (m) => m.MaterialProductModule
       ),
-    canActivate: [authGuard],
+    // canActivate: [authGuard],
   },
   {
     path: 'alarms-panel',
@@ -45,7 +45,7 @@ const routes: Routes = [
       import('./features/alarms-panel/alarms-panel.module').then(
         (m) => m.AlarmsPanelModule
       ),
-    canActivate: [authGuard],
+    // canActivate: [authGuard],
   },
   {
     path: 'userManagement',
